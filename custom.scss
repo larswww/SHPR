@@ -1,0 +1,45 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+html {
+    font-size: 1rem;
+}
+
+.main-list {
+    font-size: 0.6rem;
+
+    button {
+        font-size: 0.6rem;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    html {
+        font-size: 0.8rem;
+    }
+
+    .main-list {
+        font-size: 0.8rem
+    }
+}
+
+@include media-breakpoint-up(md) {
+    html {
+        font-size: 1.4rem;
+    }
+
+    .main-list {
+        font-size: 1.0rem
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    html {
+        font-size: 1.6rem;
+    }
+
+    .main-list {
+        font-size: 1.2rem
+    }
+}
+

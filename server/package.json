@@ -1,0 +1,35 @@
+{
+  "name": "shpr",
+  "version": "1.0.0",
+  "description": "shpr server side",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "debug": "nodemon --inspect=0.0.0.0:9229 index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larswww/SHPR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larswww/SHPR/issues"
+  },
+  "homepage": "https://github.com/larswww/SHPR#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "helmet": "^3.12.0",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.13",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}

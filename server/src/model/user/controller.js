@@ -1,0 +1,43 @@
+const jwt = require('jsonwebtoken')
+const Controller = require('../../lib/controller')
+const userFacade = require('./facade')
+
+class UserController extends Controller {
+  async login (req, res, next) {
+    const {email, password} = req.body // todo presuming email and pw are sent on body params from loginform
+    if (!email || !password) return next({error: true, message: 'username or password missing', statusCode: 400})
+
+    try {
+      const doc = await userFacade.findOneLogin({email})
+      await doc.comparePassword(password)
+      const role = doc.role
+
+      const token = jwt.sign(JSON.stringify({role, userId: doc._id}), process.env.jwt_secret)
+      return res.json({token, error: false})
+    } catch (e) {
+      console.log('Error printing from login')
+      return next(e)
+    }
+  }
+
+  async signup (req, res, next) {
+    const {
+      email, password
+    } = req.body
+    const role = 'USER'
+    try {
+      if (!email || !password) return res.status(400).json({error: true})
+      const userDocument = await userFacade.createUser({email, password, role})
+      if (!userDocument) return res.status(400)
+      return res.status(201).json({
+        error: false,
+        token: jwt.sign({email, role, userId: userDocument._id}, process.env.jwt_secret)
+      })
+    } catch (e) {
+      if (e.code === 11000) return res.status(409).json({message: "User already exists", statusCode: 409});
+      return res.status(500).json({message: "createUser failed", statusCode: 500})
+    }
+  }
+}
+
+module.exports = new UserController(userFacade)

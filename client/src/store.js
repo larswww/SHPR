@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from './axios-auth'
+import router from './router'
 import globalAxios from 'axios'
 import jwt_decode from 'jwt-decode'
 
@@ -17,6 +18,7 @@ export default new Vuex.Store({
       try {
         state.token = userData.token
         state.user = jwt_decode(userData.token)
+        state.user[state.user.role] = true
       } catch (e) {
         console.error('false token')
         state.user = null
@@ -55,6 +57,12 @@ export default new Vuex.Store({
 
         })
         .catch(e => {console.error(e)})
+    },
+
+    logout({commit}) {
+      commit('clearAuthData')
+      localStorage.removeItem('token')
+      router.replace('/')
     },
 
     tryAutoLogin ({commit}) {

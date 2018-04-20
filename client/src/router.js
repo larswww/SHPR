@@ -2,21 +2,17 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
 
-import HelloWorld from '@/components/HelloWorld'
-import Home from '@/components/Home'
-import Login from '@/components/Login'
-import Signup from '@/components/Signup'
-import User from '@/components/User'
+import Home from './components/Home'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import User from './components/User'
+import CreateVenue from './components/CreateVenue'
 
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/',
-  name: 'HelloWorld',
-  component: HelloWorld
-},
+const routes = [
   {
-    path: '/home',
+    path: '/',
     component: Home
   },
 
@@ -38,9 +34,13 @@ const routes = [{
         next('/login')
       }
     }
+  },
+  {
+    path: '/createVenue',
+    component: CreateVenue
   }
 
-  ]
+]
 
 export default new VueRouter({
   routes

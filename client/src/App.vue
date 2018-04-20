@@ -1,37 +1,32 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+    <div id="app">
+        <router-view/>
+        <NavBottom/>
+    </div>
 </template>
 
 <script>
+  import NavBottom from './components/global/NavBottom'
 
-export default {
-  name: 'App',
+  export default {
+    name: 'App',
+    components: {
+      NavBottom
+    },
 
-  data () {
-    return {
-    }
-  },
+    data () {
+      return {}
+    },
 
-  methods: {
+    methods: {},
 
-  },
-
-  created () {
-    this.$store.dispatch('tryAutoLogin')
-  },
-}
+    created () {
+      this.$store.dispatch('tryAutoLogin')
+    },
+  }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+    @import '../node_modules/bootstrap/scss/bootstrap.scss';
+    @import './assets/custom.scss';
 </style>

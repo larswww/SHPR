@@ -12,6 +12,10 @@ const userSchema = new Schema({
 });
 
 
+// reviewed venues array
+//
+
+
 userSchema.pre('save', function(next) {
   let user = this;
 

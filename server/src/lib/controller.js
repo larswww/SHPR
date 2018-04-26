@@ -5,10 +5,15 @@ class Controller {
     this.facade = facade;
   }
 
-  create(req, res, next) {
-    this.facade.create(req.body)
-      .then(doc => res.status(201).json(doc))
-      .catch(err => next({message: "Error during create.", statusCode: 500}));
+  async create(req, res, next) {
+    try {
+      let doc = await this.facade.create(req.body)
+      res.status(201).json(doc)
+    } catch (e) {
+      next({error: e, message: "Error during create.", statusCode: 500})
+
+    }
+
   }
 
   find(req, res, next) {

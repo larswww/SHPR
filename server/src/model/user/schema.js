@@ -4,17 +4,13 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 const SALT_WORK_FACTOR = 10;
 
-
 const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   role: { type: String, required: true },
   password: { type: String, required: true }
 });
 
-
 // reviewed venues array
-//
-
 
 userSchema.pre('save', function(next) {
   let user = this;

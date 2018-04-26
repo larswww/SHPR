@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import 'es6-promise/auto'
   import NavBottom from './components/global/NavBottom'
 
   export default {

@@ -51,7 +51,7 @@
                         <div class="col-sm-2">Categories</div>
                         <div class="col-sm-10" v-for="tag of tags">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" :id="tag + 'check'">
+                                <input v-model="appliedTags" class="form-check-input" type="checkbox" :value="tag" :id="tag + 'check'">
                                 <label class="form-check-label" :for="tag + 'check'">
                                     {{tag}}
                                 </label>
@@ -108,10 +108,20 @@
 
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button @click="submit()" type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
+
+                <div v-if="success" class="alert alert-primary" role="alert">
+                    {{success}}
+                </div>
+
+                <div v-if="error" class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -130,7 +140,10 @@
         },
         addresses: [{addressOne: '', addressTwo: '', addressLocal: '',
         }],
-        tags: ['neapolitan', 'american', 'fancy', 'bar', 'delivery', 'romana']
+        tags: ['neapolitan', 'american', 'fancy', 'bar', 'delivery', 'romana'],
+        appliedTags: [],
+        error: false,
+        success: false
       }
     },
     methods: {
@@ -142,6 +155,18 @@
           this[arr].pop()
         }
       },
+
+      submit() {
+        //todo validate
+        this.$store.dispatch('createVenue', this.$data)
+          .then(res => {
+            this.success = 'Venue Created!'
+          })
+          .catch(e => {
+            this.error = e.message
+          })
+      }
     }
   }
+
 </script>

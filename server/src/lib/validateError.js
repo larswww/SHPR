@@ -22,6 +22,8 @@ function validateError(err) {
   if (err.name === "TypeError") {
     err.statusCode = 500;
   }
+
+
 }
 
 module.exports = validateError;

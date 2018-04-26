@@ -2,16 +2,13 @@ const userFacade = require('../../model/user/facade');
 const jwt = require('jsonwebtoken');
 
 module.exports = async function authorize(req, res, next) {
-    const authParam = req.headers.authorization;
+    const token = req.headers.authorization;
 
-    if (authParam === undefined) {
+    if (token === undefined) {
         return next({message: 'There was no token in the header', statusCode: 401 });
-    } else if (authParam.indexOf('Bearer ') !== 0) {
-        return next({message: 'Not a bearer token', statusCode: 401})
     }
 
     try {
-      const token = authParam.split('Bearer ')[1]
       const decoded = await jwt.verify(token, process.env.jwt_secret);
 
         const mongoGetUserQuery = {

@@ -47,13 +47,13 @@ export default new Vuex.Store({
         .catch(e => console.error(e))
     },
     login({commit}, authData) {
-      debugger
       globalAxios.post('user/login', authData)
         .then(res => {
           debugger
           console.log(res)
           localStorage.setItem('token', res.data.token)
           commit('authUser', {token: res.data.token})
+          router.replace('/user')
 
         })
         .catch(e => {console.error(e)})
@@ -81,8 +81,13 @@ export default new Vuex.Store({
       axios.get('user').then(res => {
         console.log(res)
       }).catch(e => console.error('getUser', e))
-    }
+    },
 
+    createVenue({commit, state}, venueData) {
+      axios.post('venue/create', venueData).then(res => {
+        console.log(res)
+      }).catch(e => console.error('createVenue', e))
+    }
   },
 
   getters: {

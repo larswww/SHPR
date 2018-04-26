@@ -4,8 +4,8 @@
   "description": "shpr server side",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
+    "test": "mocha --timeout 10000",
+    "start": "SET NODE_ENV=dev && nodemon index.js",
     "debug": "nodemon --inspect=0.0.0.0:9229 index.js"
   },
   "repository": {
@@ -30,6 +30,9 @@
     "morgan": "^1.9.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.1.1",
     "nodemon": "^1.17.3"
   }
 }

@@ -1,27 +1,14 @@
 'use strict'
-// tags
-// name
-// address
-// pics
-// review subdoc
-// array of user reviews, used to create master review?
-// city
-// short venue desc
-//
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-/*
- array to support multi venue in city
- Address: {
- lineOne:
- lineTwo:
- localLang:
- },
+const venueSchema = new Schema({
+  city: {type: String, default: 'shanghai'},
+  description: String,
+  name: String,
+  addresses: {type: Array, default: []},
+  appliedTags: {type: Array, default: []},
+  menu: {type: Array, default: []},
+})
 
- tags [] // each unique
- menu [
- {
- name: , localLang: , price: , featured: , desc:
- }
- ]
-
- */
+module.exports = mongoose.model('venue', venueSchema, 'venue')

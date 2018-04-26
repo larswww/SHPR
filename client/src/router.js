@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import User from './components/User'
 import CreateVenue from './components/CreateVenue'
+import Venue from './components/Venue'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [
   {
     path: '/createVenue',
     component: CreateVenue
+  },
+  {
+    path: '/venue/:name',
+    component: Venue
+
   }
 
 ]

@@ -17,6 +17,8 @@ const dbOptions = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
 };
 
+console.log(`${process.env.NODE_ENV}`)
+
 mongoose.connect(process.env[`${process.env.NODE_ENV}db`], dbOptions)
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -33,8 +35,8 @@ if (process.env.NODE_ENV !== 'test') app.use(morgan('combined'))
 app.use('/', routes)
 
 app.use(function (err, req, res, next) {
+  console.error('index.js error:', err.stack)
   validateError(err)
-  console.error('index.js error:', err)
   res.status(err.statusCode).send({error: true, message: err.message})
 })
 

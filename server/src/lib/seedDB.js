@@ -6,7 +6,9 @@ module.exports.admin = async function (email, password) {
     if (!user) {
       await userFacade.create({email: email, password: password, role: 'ADMIN'})
     }
+    return true
   } catch (e) {
     console.error('seedDb, admin: ', e)
+    return false
   }
 }

@@ -2,5 +2,5 @@
 const openRoutes = ['/api/user/login', '/api/user/signup', '/api/venue/']
 
 module.exports = function (route) {
-  return openRoutes.indexOf(route) < 0
+  return openRoutes.indexOf(route) > -1
 }

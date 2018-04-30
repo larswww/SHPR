@@ -1,6 +1,6 @@
 'use strict'
 const openRoutes = {}
-openRoutes['/api/user/login'] = ['GET']
+openRoutes['/api/user/login'] = ['GET', 'POST']
 openRoutes['/api/user/signup'] = ['POST']
 
 const paramRoutes = [

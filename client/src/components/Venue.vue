@@ -34,7 +34,8 @@
                 <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
                     <p>
                         Upload an image of a pizza only. If an image of the pizza you upload already exists, we
-                        will feature your image if it's better than the existing picture. Getting an image featured earns you pizza karma.
+                        will feature your image if it's better than the existing picture. Getting an image featured
+                        earns you pizza karma.
                     </p>
                 </b-carousel-slide>
 
@@ -84,11 +85,11 @@
 
                 </b-tab>
 
-                <b-tab title="Pizza" >
+                <b-tab title="Pizza">
                     <dl class="row" v-for="mi of venue.menu.items">
 
-                            <dt class="col-sm-3">{{mi.name}}<i v-if="mi.featured"></i></dt>
-                            <dd class="col-sm-9">{{mi.desc}}</dd>
+                        <dt class="col-sm-3">{{mi.name}}<i v-if="mi.featured"></i></dt>
+                        <dd class="col-sm-9">{{mi.desc}}</dd>
                     </dl>
                 </b-tab>
                 <b-tab title="Info">
@@ -108,6 +109,7 @@
 
 <script>
   import globalAxios from 'axios'
+
   export default {
     name: 'venue',
     data () {
@@ -137,19 +139,13 @@
       }
     },
 
-    created () {
-      globalAxios.get(`venue/${this.$route.params.name}`)
-        .then(res => {
-          debugger;
-          this.loading = false
-          this.venue = res.data
-          this.venue.review = false
-
-        })
-        .catch(e => {
-
-        })
+    async created () {
+      const nameParam = this.$route.params.name
+      if (!this.$store.getters.venue[nameParam]) await this.$store.dispatch('fetchVenue', nameParam)
+      this.loading = false
+      this.venue = this.$store.getters.venue[nameParam]
     }
+
   }
 </script>
 

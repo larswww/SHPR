@@ -12,6 +12,7 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
+    venues: {},
   },
   mutations: {
     authUser: (state, userData) => {
@@ -83,6 +84,27 @@ export default new Vuex.Store({
       }).catch(e => console.error('getUser', e))
     },
 
+    async fetchVenue({commit, state}, venueName) {
+      try {
+        let res = await globalAxios.get(`venue/${venueName}`)
+        state.venues[venueName] = res.data
+        state.venues[venueName].review = false
+      } catch (e) {
+        state.venues[venueName] = {}
+        state.venues[venueName].error = true
+        state.venues[venueName].eMessage = e.message
+      }
+    },
+
+    async review({commit, state}, review) {
+      try {
+        let res = await axios.post('review', review)
+      } catch (e) {
+        console.error(e)
+
+      }
+    },
+
     createVenue({commit, state}, venueData) {
       axios.post('venue/create', venueData).then(res => {
         console.log(res)
@@ -99,6 +121,10 @@ export default new Vuex.Store({
     },
     token (state) {
       return state.token
+    },
+
+    venue (state) {
+      return state.venues
     }
   }
 })

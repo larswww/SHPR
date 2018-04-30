@@ -8,6 +8,7 @@ import Signup from './components/Signup'
 import User from './components/User'
 import CreateVenue from './components/CreateVenue'
 import Venue from './components/Venue'
+import Review from './components/Review'
 
 Vue.use(VueRouter)
 
@@ -44,6 +45,10 @@ const routes = [
     path: '/venue/:name',
     component: Venue
 
+  },
+  {
+    path: '/venue/:name/review',
+    component: Review
   }
 
 ]

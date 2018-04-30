@@ -11,7 +11,7 @@ router.route('/api').get((req, res) => {
 });
 
 router.route('*').all(function (req, res, next) {
-  if (openRoute(req.url)) return next();
+  if (openRoute(req.url, req.method)) return next();
   authorize(req, res, next);
 });
 

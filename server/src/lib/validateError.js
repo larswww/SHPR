@@ -6,6 +6,10 @@
  * @param err
  */
 function validateError(err) {
+  if (err.error && err.error.message ) {
+    console.error('validateError, handled:', err.error.message)
+    return
+  } //already handled in the controller
   if (err.name === "CastError") {
     err.statusCode = 400;
     err.message = "The given input was not valid.";

@@ -8,7 +8,7 @@ class Controller {
   async create(req, res, next) {
     try {
       let doc = await this.facade.create(req.body)
-      res.status(201).json(doc)
+      res.status(201).json({message: 'success'})
     } catch (e) {
       next({error: e, message: "Error during create.", statusCode: 500})
 

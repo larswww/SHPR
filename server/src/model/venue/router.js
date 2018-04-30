@@ -10,4 +10,7 @@ router.route('/create')
 router.route('/')
   .get((...args) => controller.get(...args))
 
+router.route('/:name')
+  .get((...args) => controller.getVenue(...args))
+
 module.exports = router

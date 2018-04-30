@@ -35,7 +35,7 @@ if (process.env.NODE_ENV !== 'test') app.use(morgan('combined'))
 app.use('/', routes)
 
 app.use(function (err, req, res, next) {
-  console.error('index.js error:', err.stack)
+  console.error('index.js error:', err)
   validateError(err)
   res.status(err.statusCode).send({error: true, message: err.message})
 })

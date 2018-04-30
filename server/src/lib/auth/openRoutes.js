@@ -1,6 +1,16 @@
 'use strict'
-const openRoutes = ['/api/user/login', '/api/user/signup', '/api/venue/']
+const openRoutes = {}
+openRoutes['/api/user/login'] = ['GET']
+openRoutes['/api/user/signup'] = ['POST']
 
-module.exports = function (route) {
-  return openRoutes.indexOf(route) > -1
+const paramRoutes = [
+  {
+    route: '/api/venue/',
+    method: 'GET'
+  }
+]
+
+module.exports = function (route, method) {
+  for (let pr of paramRoutes) if (route.indexOf(pr.route) === 0 && pr.method === method) return true
+  return (openRoutes[route] && openRoutes[route].indexOf(method) > -1)
 }

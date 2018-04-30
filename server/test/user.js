@@ -5,6 +5,9 @@ const User = require('../src/model/user/schema');
 const seedDb = require('../src/lib/seedDB')
 const authorize = require('../src/lib/auth/Auth')
 
+//https://mochajs.org/#getting-started
+//http://www.chaijs.com/api/assert/
+//https://github.com/chaijs/chai-http
 //https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 const chai = require('chai');
 const chaiHttp = require('chai-http'); //https://github.com/chaijs/chai-http

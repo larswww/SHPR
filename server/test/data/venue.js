@@ -1,6 +1,6 @@
 'use strict'
 
-const venues = [
+module.exports = [
   {
     city: 'shanghai',
     description: 'The cosy Bella Napoli serves quality Italian classics, from an excellent tomato and mozzarella salad to its 15 stone-fired pizzas, all made with a chunky, fresh tomato sauce.',
@@ -99,7 +99,7 @@ const venues = [
     ],
     contact: {
       phone: '5309 9332',
-      web: null,
+      web: '',
     },
     appliedTags: ['american'],
     menu: {

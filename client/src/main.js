@@ -5,6 +5,10 @@ import App from './App'
 import store from './store.js'
 import router from './router.js'
 import axios from 'axios'
+import BootstrapVue from 'bootstrap-vue'
+
+//todo use individual components instead
+Vue.use(BootstrapVue)
 
 
 axios.defaults.baseURL = 'http://localhost:5000/api'

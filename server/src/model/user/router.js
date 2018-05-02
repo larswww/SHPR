@@ -5,12 +5,12 @@ const router = new Router();
 const checkRole = require('../../lib/auth/checkRole');
 
 router.route('/login')
-  .post((...args) => controller.login(...args));
-
-router.route('/testauth')
-  .get(checkRole(['ADMIN', 'USER']), (...args) => controller.test(...args))
+  .post((...args) => controller.login(...args))
 
 router.route('/signup')
-  .post((...args) => controller.signup(...args));
+  .post((...args) => controller.signup(...args))
+
+router.route('/reviews')
+  .get(checkRole(['ADMIN', 'USER']), (...args) => controller.getReviews(...args))
 
 module.exports = router;

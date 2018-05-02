@@ -5,7 +5,7 @@ const router = new Router();
 const checkRole = require('../../lib/auth/checkRole');
 
 router.route('/')
-  .post(checkRole(['ADMIN', 'USER']), (...args) => controller.create(...args));
+  .post(checkRole(['ADMIN', 'USER']), (...args) => controller.saveReview(...args));
 
 
 module.exports = router;

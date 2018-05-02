@@ -12,6 +12,7 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
+    userReviews: {},
     venues: {},
   },
   mutations: {
@@ -30,7 +31,16 @@ export default new Vuex.Store({
     clearAuthData(state) {
       state.user = null
       state.token = null
+    },
+
+    userReviews(state, reviewData) {
+      state.userReviews[reviewData._id] = reviewData
+    },
+
+    venue(state, venue) {
+      state.venues[venue.name] = venue
     }
+
 
   },
   actions: {
@@ -40,7 +50,7 @@ export default new Vuex.Store({
           console.log(res)
           localStorage.setItem('token', res.data.token)
           commit('authUser', {token: res.data.token})
-          dispatch('storeUser', authData)
+          this.dispatch('storeUser', authData)
 
 
 
@@ -54,6 +64,7 @@ export default new Vuex.Store({
           console.log(res)
           localStorage.setItem('token', res.data.token)
           commit('authUser', {token: res.data.token})
+          this.dispatch('fetchReviews')
           router.replace('/user')
 
         })
@@ -70,6 +81,8 @@ export default new Vuex.Store({
       const token = localStorage.getItem('token')
       if (!token) return
       commit('authUser', {token: token})
+      this.dispatch('fetchReviews')
+
     },
 
     storeUser({commit, state}, userData) {
@@ -87,22 +100,32 @@ export default new Vuex.Store({
     async fetchVenue({commit, state}, venueName) {
       try {
         let res = await globalAxios.get(`venue/${venueName}`)
-        state.venues[venueName] = res.data
-        state.venues[venueName].review = false
+        commit('venue', res.data)
       } catch (e) {
-        state.venues[venueName] = {}
-        state.venues[venueName].error = true
-        state.venues[venueName].eMessage = e.message
+        commit('venue', {error: true, message: e.message})
       }
     },
 
-    async review({commit, state}, review) {
-      try {
-        let res = await axios.post('review', review)
-      } catch (e) {
-        console.error(e)
+    fetchReviews({commit, state}, user) {
+      axios.get('user/reviews')
+        .then(res => {
+          commit('userReviews', res.data)
+        }).catch(e => {
 
-      }
+      })
+    },
+
+    review({commit, state}, review) {
+      return new Promise(async function (resolve, reject) {
+        try {
+          let res = await axios.post('review', review)
+          resolve(res.data)
+        } catch (e) {
+          reject(e)
+          console.error(e)
+        }
+      })
+
     },
 
     createVenue({commit, state}, venueData) {
@@ -125,6 +148,10 @@ export default new Vuex.Store({
 
     venue (state) {
       return state.venues
+    },
+
+    review (state) {
+      return state.userReviews
     }
   }
 })

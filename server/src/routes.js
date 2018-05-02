@@ -17,5 +17,6 @@ router.route('*').all(function (req, res, next) {
 
 router.use('/api/user', user);
 router.use('/api/venue', venue)
+router.use('/api/review', require('./model/review/router'))
 
 module.exports = router;

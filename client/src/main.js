@@ -6,10 +6,11 @@ import store from './store.js'
 import router from './router.js'
 import axios from 'axios'
 import BootstrapVue from 'bootstrap-vue'
+import VueFlashMessage from 'vue-flash-message';
 
 //todo use individual components instead
 Vue.use(BootstrapVue)
-
+Vue.use(VueFlashMessage);
 
 axios.defaults.baseURL = 'http://localhost:5000/api'
 // axios.defaults.headers.common['Authorization'] = 'hej'

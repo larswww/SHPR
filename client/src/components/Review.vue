@@ -2,7 +2,8 @@
 
     <div v-if="auth" class="container">
         <b-form @submit="onSubmit">
-            <h1>Review {{venue.name}}</h1>
+            <h1 v-if="edit">Review {{venue.name}}</h1>
+            <h1 v-else>Edit your {{venue.name}} Review</h1>
 
             <b-form-select v-model="selectedPizza" :options="pizzaChoice" class="mb-3" size="sm"/>
 
@@ -40,6 +41,7 @@
     },
     data () {
       return {
+        edit: false,
         pizzaChoice: [],
         selectedPizza: null,
         venue: {
@@ -75,10 +77,15 @@
 
       onSubmit (e) {
         e.preventDefault()
-        const review = {name: this.venue.name, selectedPizza: this.selectedPizza, review: this.reviewAspects}
+        const review = {name: this.venue.name, selectedPizza: this.selectedPizza, reviewAspects: this.reviewAspects}
 
         this.$store.dispatch('review', review)
           .then(res => {
+            debugger
+            this.reviewAspects = res.aspects
+            this.selectedPizza = res.selectedPizza
+            this.flash('Review Saved! Edit below', 'success')
+
             console.log('review saved')
           })
           .catch(e => {
@@ -94,8 +101,17 @@
       if (!this.$store.getters.venue[nameParam]) await this.$store.dispatch('fetchVenue', nameParam)
       this.loading = false
       this.venue = this.$store.getters.venue[nameParam]
-
       this.buildPizzaSelect()
+      const userReview = this.$store.getters.review[this.venue._id]
+      debugger
+      if (userReview) {
+        debugger;
+        this.reviewAspects = userReview.aspects
+        this.selectedPizza = userReview.selectedPizza
+        this.edit = true
+
+      }
+
     }
   }
 </script>

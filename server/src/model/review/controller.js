@@ -13,10 +13,7 @@ class ReviewController extends Controller {
     } catch (e) {
       return next(e)
     }
-
   }
-
-
 }
 
 module.exports = new ReviewController(Facade)

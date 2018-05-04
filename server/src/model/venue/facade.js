@@ -1,6 +1,8 @@
 'use strict'
 const Facade = require('../../lib/facade')
 const Schema = require('./schema')
+const userFacade = require('../user/facade')
+const reviewFacade = require('../review/facade')
 
 class VenueFacade extends Facade {
 
@@ -15,7 +17,14 @@ class VenueFacade extends Facade {
       menu: {$each: formData.menu}
     }})
     doc.save()
+  }
 
+  async getReviewedVenues() {
+    const admins = await userFacade.getAdmins()
+    const adminIds = admins.map(admin => admin._id)
+    const adminReviews = await reviewFacade.find({user: {$in: adminIds}})
+    const adminReviewIds = adminReviews.map(ar => ar.venue)
+    return await this.find({_id: {$in: adminReviewIds}})
   }
 
 }

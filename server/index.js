@@ -1,6 +1,5 @@
+require('dotenv').config({path: '/Users/mbp/Documents/Code/SHPR/server/.env'})
 const express = require('express')
-const dotenv = require('dotenv')
-dotenv.config({path: '/Users/mbp/Documents/Code/SHPR/server/.env'})
 const mongoose = require('mongoose')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')

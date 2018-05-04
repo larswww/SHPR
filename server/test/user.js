@@ -1,9 +1,10 @@
 'use strict'
-process.env.NODE_ENV = 'test';
+//process.env.NODE_ENV = 'test';
 const mongoose = require('mongoose');
 const User = require('../src/model/user/schema');
 const seedDb = require('../src/lib/seedDB')
 const authorize = require('../src/lib/auth/Auth')
+const seedData = require('./lib/loadSampleData')
 
 //https://mochajs.org/#getting-started
 //http://www.chaijs.com/api/assert/
@@ -11,6 +12,7 @@ const authorize = require('../src/lib/auth/Auth')
 //https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 const chai = require('chai');
 const chaiHttp = require('chai-http'); //https://github.com/chaijs/chai-http
+process.env.NODE_ENV = 'test'
 const server = require('../index');
 const should = chai.should();
 const assert = chai.assert
@@ -19,14 +21,18 @@ const expect = chai.expect
 chai.use(chaiHttp);
 
 describe('User', () => {
-  before(done => {
-    User.remove({}, err => {
-      done()
-    })
+
+  let userToken, adminToken
+
+  before(async function() {
+    await User.remove({})
+    const obj = await seedData()
+    userToken = obj.userToken
+    adminToken = obj.adminToken
   })
 
   describe('api/user USER role', () => {
-    let userToken = ''
+    let createdUserToken = ''
     const email = 'test@gmail.com'
     const password = 'password'
 
@@ -38,7 +44,7 @@ describe('User', () => {
           res.should.have.status(201)
           res.body.token.should.be.a('string')
           res.body.error.should.equal(false)
-          userToken = res.body.token
+          createdUserToken = res.body.token
           done()
         })
     })
@@ -51,7 +57,7 @@ describe('User', () => {
           res.should.have.status(200)
           res.body.token.should.be.a('string')
           res.body.error.should.equal(false)
-          userToken = res.body.token
+          createdUserToken = res.body.token
           done()
         })
     })
@@ -60,7 +66,7 @@ describe('User', () => {
     it('token decodes correctly', done => {
       let req = {}
       req.headers = {}
-      req.headers.authorization = userToken
+      req.headers.authorization = createdUserToken
       let res = {}
       res.locals = {}
       authorize(req, res, (authRes) => {
@@ -76,7 +82,7 @@ describe('User', () => {
     it('ADMIN route as USER is not possible', function (done) {
       chai.request(server)
         .post('/api/venue/create')
-        .set('authorization', userToken)
+        .set('authorization', createdUserToken)
         .send({})
         .end(function (err, res) {
           expect(res).to.have.status(403)
@@ -89,8 +95,6 @@ describe('User', () => {
   })
 
   describe('api/user ADMIN role', () => {
-    let adminToken = false
-
     it('should be possible to create admin account', async function() {
       const admin = await seedDb.admin(process.env.admin_email, process.env.admin_password)
       assert.isOk(admin, 'creating admin account on empty db isOk')

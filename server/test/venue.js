@@ -2,6 +2,7 @@
 process.env.NODE_ENV = 'test'
 const mongoose = require('mongoose')
 const Venue = require('../src/model/venue/schema')
+const User = require('../src/model/user/schema')
 const venues = require('./data/venue')
 
 //https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
@@ -12,14 +13,17 @@ const should = chai.should()
 
 chai.use(chaiHttp)
 
-describe('Venue', () => {
-  const userToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJ1c2VySWQiOiI1YWU0M2MxMDRiYjY0YWMyNGZlOWVmMzEiLCJpYXQiOjE1MjQ5MDcwMjR9.OVK_oSCcCi39DaDG1JS562k2kKOEYHo1-3m2WyjuawQ'
-  const adminToken = 'eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImhpQGxhcnN3Lm5ldCIsInJvbGUiOiJBRE1JTiIsInVzZXJJZCI6IjVhYzk5ODVmZDRjNmZmMzhhNTNjZGI4NiJ9.BId_QYvnbqtni-ST0yZdMmNQBK1FBdfTxhozRRLmTdo'
+const seedData = require('./lib/loadSampleData')
 
-  before(done => {
-    Venue.remove({}, err => {
-      done()
-    })
+describe('Venue', function () {
+  let userToken, adminToken
+
+  before(async function() {
+    await Venue.remove({})
+    await User.remove({})
+    const obj = await seedData()
+    userToken = obj.userToken
+    adminToken = obj.adminToken
   })
 
   it('it should GET all the venues', (done) => {
@@ -63,14 +67,14 @@ describe('Venue', () => {
 
   it('should be possible to POST venues', function (done) {
     let venue = venues[0]
-      chai.request(server)
-        .post('/api/venue/create')
-        .set('authorization', adminToken)
-        .send(venue)
-        .end(function (err, res) {
-          done()
+    chai.request(server)
+      .post('/api/venue/create')
+      .set('authorization', adminToken)
+      .send(venue)
+      .end(function (err, res) {
+        done()
 
-        })
+      })
   })
 })
 

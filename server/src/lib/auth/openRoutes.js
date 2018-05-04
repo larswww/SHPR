@@ -5,7 +5,7 @@ openRoutes['/api/user/signup'] = ['POST']
 
 const paramRoutes = [
   {
-    route: '/api/venue/',
+    route: '/api/venue',
     method: 'GET'
   }
 ]

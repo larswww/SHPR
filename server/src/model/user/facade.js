@@ -18,7 +18,11 @@ class UserFacade extends Facade {
   }
 
   async createUser(newUserObject) {
-      return await this.Schema.create(newUserObject)
+      return await this.create(newUserObject)
+  }
+
+  async getAdmins() {
+    return await this.find({role: 'ADMIN'})
   }
 
 }

@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const venueSchema = new Schema({
-  city: {type: String, default: 'shanghai'},
+  city: String,
   description: String,
   name: {type: String, required: true, unique: true},
   addresses: {type: Array, default: []},

@@ -3,6 +3,8 @@ process.env.NODE_ENV = 'test'
 const mongoose = require('mongoose')
 const Venue = require('../src/model/venue/schema')
 const User = require('../src/model/user/schema')
+const Review = require('../src/model/review/schema')
+
 const venues = require('./data/venue')
 
 //https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
@@ -21,6 +23,7 @@ describe('Review', async function () {
 
   before(async function() {
     await Venue.remove({})
+    await Review.remove({})
     await User.remove({})
     const obj = await seedData()
     userToken = obj.userToken
@@ -71,5 +74,7 @@ describe('Review', async function () {
         done()
       })
   })
+
+
 
 })

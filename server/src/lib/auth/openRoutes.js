@@ -2,7 +2,10 @@
 const openRoutes = {}
 openRoutes['/api/user/login'] = ['GET', 'POST']
 openRoutes['/api/user/signup'] = ['POST']
+openRoutes['/api/venue/reviewed'] = ['GET']
 
+
+//this is for routes that has a :param in the url
 const paramRoutes = [
   {
     route: '/api/venue',

@@ -2,11 +2,11 @@
 
 
 //'Overall Review', 'Topping Quality', 'Dough'
-module.exports = [
+module.exports.seed = [
   {
     venueName: 'Bella Napoli',
     selectedPizza: 'Diavola',
-    aspects: [
+    reviewAspects: [
       {
         name: 'Overall Review',
         heading: 'The Best',
@@ -31,7 +31,7 @@ module.exports = [
   {
     venueName: 'Homeslice',
     selectedPizza: 'White',
-    aspects: [
+    reviewAspects: [
       {
         name: 'Overall Review',
         heading: 'Booze pizza',
@@ -58,7 +58,7 @@ module.exports = [
   {
     venueName: 'Centrale',
     selectedPizza: 'White',
-    aspects: [
+    reviewAspects: [
       {
         name: 'Overall Review',
         heading: 'Booze pizza',
@@ -85,7 +85,7 @@ module.exports = [
   {
     venueName: 'UVA Wine Bar',
     selectedPizza: 'White',
-    aspects: [
+    reviewAspects: [
       {
         name: 'Overall Review',
         heading: 'Booze pizza',
@@ -112,7 +112,7 @@ module.exports = [
   {
     venueName: 'Dominos',
     selectedPizza: 'White',
-    aspects: [
+    reviewAspects: [
       {
         name: 'Overall Review',
         heading: 'Booze pizza',
@@ -139,7 +139,7 @@ module.exports = [
   {
     venueName: 'Papa Johns',
     selectedPizza: 'White',
-    aspects: [
+    reviewAspects: [
       {
         name: 'Overall Review',
         heading: 'Booze pizza',
@@ -166,7 +166,7 @@ module.exports = [
   {
     venueName: 'Gemma',
     selectedPizza: 'White',
-    aspects: [
+    reviewAspects: [
       {
         name: 'Overall Review',
         heading: 'Booze pizza',

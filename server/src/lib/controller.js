@@ -11,9 +11,7 @@ class Controller {
       res.status(201).json({message: 'success'})
     } catch (e) {
       next({error: e, message: "Error during create.", statusCode: 500})
-
     }
-
   }
 
   find(req, res, next) {

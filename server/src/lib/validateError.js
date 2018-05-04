@@ -6,6 +6,8 @@
  * @param err
  */
 function validateError(err) {
+  if (err.message) console.error('validateError', err.message)
+  if (err.stack) console.error(err.stack)
   if (err.error && err.error.message ) {
     console.error('validateError, handled:', err.error.message)
     return

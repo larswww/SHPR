@@ -10,6 +10,9 @@ router.route('/create')
 router.route('/')
   .get((...args) => controller.get(...args))
 
+router.route('/reviewed')
+  .get((...args) => controller.getReviewed(...args))
+
 router.route('/:name')
   .get((...args) => controller.getVenue(...args))
 

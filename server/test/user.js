@@ -1,7 +1,11 @@
 'use strict'
-//process.env.NODE_ENV = 'test';
+process.env.NODE_ENV = 'test';
 const mongoose = require('mongoose');
 const User = require('../src/model/user/schema');
+const Venue = require('../src/model/venue/schema')
+const Review = require('../src/model/review/schema')
+
+
 const seedDb = require('../src/lib/seedDB')
 const authorize = require('../src/lib/auth/Auth')
 const seedData = require('./lib/loadSampleData')
@@ -25,7 +29,10 @@ describe('User', () => {
   let userToken, adminToken
 
   before(async function() {
+    await Venue.remove({})
+    await Review.remove({})
     await User.remove({})
+
     const obj = await seedData()
     userToken = obj.userToken
     adminToken = obj.adminToken
@@ -94,14 +101,14 @@ describe('User', () => {
     })
   })
 
-  describe('api/user ADMIN role', () => {
-    it('should be possible to create admin account', async function() {
-      const admin = await seedDb.admin(process.env.admin_email, process.env.admin_password)
-      assert.isOk(admin, 'creating admin account on empty db isOk')
-    })
-
-
-  })
+  // describe('api/user ADMIN role', () => {
+  //   it('should be possible to create admin account', async function() {
+  //     const admin = await seedDb.admin(process.env.admin_email, process.env.admin_password)
+  //     assert.isOk(admin, 'creating admin account on empty db isOk')
+  //   })
+  //
+  //
+  // })
 
 
 })

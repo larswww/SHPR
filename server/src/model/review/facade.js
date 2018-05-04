@@ -1,13 +1,14 @@
 'use strict'
+
 const Facade = require('../../lib/facade')
 const Schema = require('./schema')
 const venueFacade = require('../venue/facade')
 
-
 class ReviewFacade extends Facade {
 
   async saveReview(user, review) {
-    const venue = await venueFacade.findOne({name: review.name})
+    //todo use venueName or name?
+   const venue = await venueFacade.findOne({name: review.venueName})
     if (!venue) throw new Error('No such venue')
     review.venue = venue._id
     review.venueName = venue.name
@@ -21,9 +22,6 @@ class ReviewFacade extends Facade {
     await review.update({$addToSet: {aspects: aspects}})
     await review.save()
   }
-
-
-
 
 }
 

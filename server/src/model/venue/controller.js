@@ -38,8 +38,18 @@ class VenueController extends Controller {
     } catch (e) {
       next(e)
     }
-
   }
+
+  async getReviewed(req, res, next) {
+    try {
+      const reviewed = await this.facade.getReviewedVenues()
+      return res.status(200).json({venues: reviewed})
+    } catch (e) {
+      next(e)
+    }
+  }
+
+
 }
 
 module.exports = new VenueController(Facade)

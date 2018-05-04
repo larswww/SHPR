@@ -3,6 +3,8 @@ process.env.NODE_ENV = 'test'
 const mongoose = require('mongoose')
 const Venue = require('../src/model/venue/schema')
 const User = require('../src/model/user/schema')
+const Review = require('../src/model/review/schema')
+
 const venues = require('./data/venue')
 
 //https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
@@ -20,6 +22,7 @@ describe('Venue', function () {
 
   before(async function() {
     await Venue.remove({})
+    await Review.remove({})
     await User.remove({})
     const obj = await seedData()
     userToken = obj.userToken
@@ -32,7 +35,7 @@ describe('Venue', function () {
       .end((err, res) => {
         res.should.have.status(200)
         res.body.venues.should.be.a('array')
-        res.body.venues.length.should.be.eql(0)
+        res.body.venues.length.should.be.eql(venues.seed.length)
         done()
       })
   })
@@ -66,7 +69,7 @@ describe('Venue', function () {
   })
 
   it('should be possible to POST venues', function (done) {
-    let venue = venues[0]
+    let venue = venues.extra[0]
     chai.request(server)
       .post('/api/venue/create')
       .set('authorization', adminToken)
@@ -76,5 +79,18 @@ describe('Venue', function () {
 
       })
   })
+
+  it('should return an array of venues with ADMIN created reviews', function (done) {
+    chai.request(server)
+      .get('/api/venue/reviewed')
+      .end((err, res) => {
+        res.should.have.status(200)
+        res.body.should.have.property('venues')
+        res.body.venues.length.should.equal(2)
+        done()
+      })
+
+  })
+
 })
 

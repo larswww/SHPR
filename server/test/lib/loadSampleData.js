@@ -4,6 +4,7 @@ const userFacade = require('../../src/model/user/facade')
 const userController = require('../../src/model/user/controller')
 const venueFacade = require('../../src/model/venue/facade')
 const reviewFacade = require('../../src/model/review/facade')
+const reviewController = require('../../src/model/review/controller')
 
 const venues = require('../data/venue')
 const reviews = require('../data/reviews')
@@ -53,14 +54,28 @@ async function seedReviews () {
   const admin = await userFacade.findOne({role: 'ADMIN'})
   const user = await userFacade.findOne({role: 'USER'})
 
-  for (let i = 0; i < reviews.seed.length -1; i++) {
-    if (i < 2) { //admin created reviews
-      await reviewFacade.saveReview(admin._id, reviews.seed[i])
-
-    } else { // user created
-      await reviewFacade.saveReview(user._id, reviews.seed[i])
-    }
+  for (let i = 0; i < reviews.seed.length - 1; i++) {
+    let cb = standardCallback()
+    if (i < 2) cb.locals.user._id = admin._id //admin created reviews
+    else cb.locals.user._id = user._id //user created reviews
+    await reviewController.saveReview({body: reviews.seed[i]}, cb)
   }
 }
 
+function standardCallback () {
+  return {
+    status: function (httpcode) {
+      return {
+        json: function (res) {
+
+        }
+      }
+    },
+    locals: {
+      user: {
+        id: ''
+      }
+    }
+  }
+}
 

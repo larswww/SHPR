@@ -75,6 +75,30 @@ describe('Review', async function () {
       })
   })
 
+  //
+  // it('should return an array of venues not reviewed by logged in user', function (done) {
+  //   chai.request(server)
+  //     .get('/api/user/venues/notReviewed')
+  //     .set('authorization', userToken)
+  //     .end((err, res) => {
+  //
+  //     })
+  //
+  // })
+  //
+  // it('should return an array of venues reviewed by logged in user', function (done) {
+  //   chai.request(server)
+  //     .get('/api/user/venues/reviewed')
+  //     .set('authorization', userToken)
+  //     .end((err, res) => {
+  //
+  //
+  //     })
+  //
+  // })
+
+  // get all the venues
+  // filter based on reviews
 
 
 })

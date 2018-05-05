@@ -25,6 +25,10 @@ class UserFacade extends Facade {
     return await this.find({role: 'ADMIN'})
   }
 
+  async addReview(user, review) {
+    await this.addToSet({_id: user._id}, 'reviews', [review._id])
+  }
+
 }
 
 module.exports = new UserFacade(userSchema);

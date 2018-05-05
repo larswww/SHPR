@@ -12,12 +12,10 @@ class VenueFacade extends Facade {
       description: formData.desc,
      })
 
-    doc.update( {$addToSet: {
-      addresses: {$each: formData.addresses},
-      tags: {$each: formData.appliedTags},
-      menu: {$each: formData.menu}
-    }})
-    doc.save()
+    const id = doc._id
+    await this.addToSet(id, 'addresses', formData.addresses)
+    await this.addToSet(id, 'appliedTags', formData.appliedTags)
+    await this.addToSet(id, 'menu', formData.menu.items)
   }
 
   async getMasterReviewedVenues() {
@@ -25,9 +23,17 @@ class VenueFacade extends Facade {
     const adminIds = admins.map(admin => admin._id)
     const adminReviews = await mongoose.model('review').find({user: {$in: adminIds}})
     // const adminReviews = await reviewFacade.find({user: {$in: adminIds}})
-
     const adminReviewIds = adminReviews.map(ar => ar.venue)
-    return await this.find({_id: {$in: adminReviewIds}})
+    const venues = await this.find({_id: {$in: adminReviewIds}})
+
+    //todo this is garbage
+    const res = []
+    for (let i = 0; i < venues.length; i++) {
+      venues[i]._doc.review = adminReviews[i]._doc
+      res.push(venues[i]._doc)
+    }
+
+    return res
   }
 
 }

@@ -14,6 +14,7 @@ export default new Vuex.Store({
     user: null,
     userReviews: {},
     venues: {},
+    masters: null
   },
   mutations: {
     authUser: (state, userData) => {
@@ -39,6 +40,10 @@ export default new Vuex.Store({
 
     venue(state, venue) {
       state.venues[venue.name] = venue
+    },
+
+    masters(state, masters) {
+      state.masters = masters
     }
 
 
@@ -115,6 +120,12 @@ export default new Vuex.Store({
       })
     },
 
+    async getMasters({commit, state}) {
+      if (state.masters) return state.masters
+      const masters = await axios.get('venue/masterReviews')
+      commit('masters', masters.data)
+    },
+
     review({commit, state}, review) {
       return new Promise(async function (resolve, reject) {
         try {
@@ -125,7 +136,6 @@ export default new Vuex.Store({
           console.error(e)
         }
       })
-
     },
 
     createVenue({commit, state}, venueData) {
@@ -152,6 +162,10 @@ export default new Vuex.Store({
 
     review (state) {
       return state.userReviews
+    },
+
+    masters (state) {
+      return state.masters
     }
   }
 })

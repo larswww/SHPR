@@ -43,7 +43,7 @@ class VenueController extends Controller {
   async masterReviewed(req, res, next) {
     try {
       const reviewed = await this.facade.getMasterReviewedVenues()
-      return res.status(200).json({venues: reviewed})
+      return res.status(200).json(reviewed)
     } catch (e) {
       next(e)
     }

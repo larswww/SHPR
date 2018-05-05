@@ -14,7 +14,8 @@ class ReviewFacade extends Facade {
     review.venueName = venue.name
     review.user = user
     let newReview = await this.create(review)
-    await this.updateReview(newReview, review.reviewAspects)
+    await this.addToSet(newReview, 'aspects', review.reviewAspects)
+   // await this.updateReview(newReview, review.reviewAspects)
     return newReview
   }
 

@@ -26,7 +26,7 @@ class UserFacade extends Facade {
   }
 
   async addReview(user, review) {
-    await this.addToSet({_id: user._id}, 'reviews', [review._id])
+    await this.addToSet({_id: user._id}, 'reviewedVenues', [review.venue])
   }
 
 }

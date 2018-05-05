@@ -20,7 +20,7 @@ class VenueFacade extends Facade {
     doc.save()
   }
 
-  async getReviewedVenues() {
+  async getMasterReviewedVenues() {
     const admins = await userFacade.getAdmins()
     const adminIds = admins.map(admin => admin._id)
     const adminReviews = await mongoose.model('review').find({user: {$in: adminIds}})

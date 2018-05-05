@@ -58,7 +58,7 @@ async function seedReviews () {
     let cb = standardCallback()
     if (i < 2) cb.locals.user._id = admin._id //admin created reviews
     else cb.locals.user._id = user._id //user created reviews
-    await reviewController.saveReview({body: reviews.seed[i]}, cb)
+    await reviewController.saveReview({body: reviews.seed[i]}, cb, nextError)
   }
 }
 
@@ -77,5 +77,9 @@ function standardCallback () {
       }
     }
   }
+}
+
+function nextError(e) {
+  console.error('loadData passed next:', e)
 }
 

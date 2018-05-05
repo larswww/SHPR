@@ -40,13 +40,25 @@ class VenueController extends Controller {
     }
   }
 
-  async getReviewed(req, res, next) {
+  async masterReviewed(req, res, next) {
     try {
-      const reviewed = await this.facade.getReviewedVenues()
+      const reviewed = await this.facade.getMasterReviewedVenues()
       return res.status(200).json({venues: reviewed})
     } catch (e) {
       next(e)
     }
+  }
+
+  async getReviewed(req, res, next) {
+    req.query = {_id: {$in: res.locals.user.reviewedVenues}}
+    return await this.find(req, res, next)
+  }
+
+  async getNotReviewed(req, res, next) {
+    req.query = {_id: {$in: res.locals.user.reviewedVenues}}
+    return await this.find(req, res, next)
+    // const notReviewed = await this.find(req, res, next)
+    // return res.status(200).json({notReviewed: notReviewed})
   }
 
 

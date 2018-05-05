@@ -20,7 +20,7 @@ const seedData = require('./lib/loadSampleData')
 describe('Venue', function () {
   let userToken, adminToken
 
-  before(async function() {
+  before(async function () {
     await Venue.remove({})
     await Review.remove({})
     await User.remove({})
@@ -82,7 +82,7 @@ describe('Venue', function () {
 
   it('should return an array of venues with ADMIN created reviews', function (done) {
     chai.request(server)
-      .get('/api/venue/reviewed')
+      .get('/api/venue/masterReviews')
       .end((err, res) => {
         res.should.have.status(200)
         res.body.should.have.property('venues')
@@ -92,8 +92,28 @@ describe('Venue', function () {
 
   })
 
+  //todo this tests are a bit week and doesnt assert correct reviewed venues are returned
+  it('should return an array of venues not reviewed by logged in user', function (done) {
+    chai.request(server)
+      .get('/api/venue/notReviewed')
+      .set('authorization', userToken)
+      .end((err, res) => {
+        res.should.have.status(200)
+        done()
+      })
 
+  })
 
+  it('should return an array of venues reviewed by logged in user', function (done) {
+    chai.request(server)
+      .get('/api/venue/reviewed')
+      .set('authorization', userToken)
+      .end((err, res) => {
+        res.should.have.status(200)
+        done()
+      })
+
+  })
 
 })
 

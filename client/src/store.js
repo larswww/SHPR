@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from './axios-auth'
 import router from './router'
-import globalAxios from 'axios'
+import globalAxios from './axios-global'
 import jwt_decode from 'jwt-decode'
 
 Vue.use(Vuex)
@@ -14,7 +14,9 @@ export default new Vuex.Store({
     user: null,
     userReviews: {},
     venues: {},
-    masters: null
+    masters: {
+      notInitialized: true
+    }
   },
   mutations: {
     authUser: (state, userData) => {
@@ -29,54 +31,43 @@ export default new Vuex.Store({
       }
     },
 
-    clearAuthData(state) {
+    clearAuthData (state) {
       state.user = null
       state.token = null
     },
 
-    userReviews(state, reviewData) {
-      state.userReviews[reviewData._id] = reviewData
+    userReviews (state, reviewData) {
+      for (let u of reviewData) state.userReviews[u.venueName] = u
     },
 
-    venue(state, venue) {
+    venue (state, venue) {
       state.venues[venue.name] = venue
     },
 
-    masters(state, masters) {
-      state.masters = masters
+    masters (state, masters) {
+      state.masters = {}
+      for (let m of masters) state.masters[m.name] = m
     }
 
-
   },
+
   actions: {
-    signup({commit}, authData) {
+    signup ({commit}, authData) {
       globalAxios.post('user/signup', authData)
         .then(res => {
-          console.log(res)
-          localStorage.setItem('token', res.data.token)
-          commit('authUser', {token: res.data.token})
-          this.dispatch('storeUser', authData)
-
-
-
+          this.dispatch('user', res.data.token)
         })
         .catch(e => console.error(e))
     },
-    login({commit}, authData) {
+    login ({commit}, authData) {
       globalAxios.post('user/login', authData)
         .then(res => {
-          debugger
-          console.log(res)
-          localStorage.setItem('token', res.data.token)
-          commit('authUser', {token: res.data.token})
-          this.dispatch('fetchReviews')
-          router.replace('/user')
-
+          this.dispatch('user', res.data.token)
         })
         .catch(e => {console.error(e)})
     },
 
-    logout({commit}) {
+    logout ({commit}) {
       commit('clearAuthData')
       localStorage.removeItem('token')
       router.replace('/')
@@ -85,48 +76,45 @@ export default new Vuex.Store({
     tryAutoLogin ({commit}) {
       const token = localStorage.getItem('token')
       if (!token) return
-      commit('authUser', {token: token})
+      commit('authUser', {token})
       this.dispatch('fetchReviews')
-
     },
 
-    storeUser({commit, state}, userData) {
-      if (!state.token) return
-      globalAxios.post()
+    async user ({commit, state}, token) {
+      localStorage.setItem('token', token)
+      commit('authUser', {token})
+      await this.dispatch('fetchReviews')
+      router.replace('/user')
     },
 
-    getUser({commit, state}, userData) {
+    getUser ({commit, state}, userData) {
       if (!state.token) return
       axios.get('user').then(res => {
         console.log(res)
       }).catch(e => console.error('getUser', e))
     },
 
-    async fetchVenue({commit, state}, venueName) {
+    async fetchVenue ({commit, state}, venueName) {
       try {
-        let res = await globalAxios.get(`venue/${venueName}`)
+        let res = await globalAxios.get(`venue/name/${venueName}`)
         commit('venue', res.data)
       } catch (e) {
+        debugger
         commit('venue', {error: true, message: e.message})
       }
     },
 
-    fetchReviews({commit, state}, user) {
-      axios.get('user/reviews')
-        .then(res => {
-          commit('userReviews', res.data)
-        }).catch(e => {
-
-      })
+    async fetchReviews ({commit, state}, user) {
+      const res = await axios.get('user/reviews')
+      commit('userReviews', res.data)
     },
 
-    async getMasters({commit, state}) {
-      if (state.masters) return state.masters
+    async getMasters ({commit, state}) {
       const masters = await axios.get('venue/masterReviews')
-      commit('masters', masters.data)
+      return commit('masters', masters.data)
     },
 
-    review({commit, state}, review) {
+    review ({commit, state}, review) {
       return new Promise(async function (resolve, reject) {
         try {
           let res = await axios.post('review', review)
@@ -138,7 +126,7 @@ export default new Vuex.Store({
       })
     },
 
-    createVenue({commit, state}, venueData) {
+    createVenue ({commit, state}, venueData) {
       axios.post('venue/create', venueData).then(res => {
         console.log(res)
       }).catch(e => console.error('createVenue', e))
@@ -165,7 +153,11 @@ export default new Vuex.Store({
     },
 
     masters (state) {
-      return state.masters
+      if (state.masters.notInitialized) { //empty object check
+        return false
+      } else {
+        return state.masters
+      }
     }
   }
 })

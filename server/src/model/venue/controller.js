@@ -55,7 +55,7 @@ class VenueController extends Controller {
   }
 
   async getNotReviewed(req, res, next) {
-    req.query = {_id: {$in: res.locals.user.reviewedVenues}}
+    req.query = {_id: {$nin: res.locals.user.reviewedVenues}}
     return await this.find(req, res, next)
     // const notReviewed = await this.find(req, res, next)
     // return res.status(200).json({notReviewed: notReviewed})

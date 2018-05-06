@@ -62,7 +62,7 @@
 
     methods: {
       buildPizzaSelect () {
-        const menuItems = this.venue.menu.items
+        const menuItems = this.venue.menu
         this.pizzaChoice.push({value: null, text: 'Select the pizza you had'})
         for (let item of menuItems) {
           this.pizzaChoice.push({value: item.name, text: item.name})
@@ -102,10 +102,10 @@
       this.loading = false
       this.venue = this.$store.getters.venue[nameParam]
       this.buildPizzaSelect()
-      const userReview = this.$store.getters.review[this.venue._id]
-      debugger
+      if (!this.$store.getters.review[nameParam]) await this.$store.dispatch('userReviews')
+
+      const userReview = this.$store.getters.review[nameParam]
       if (userReview) {
-        debugger;
         this.reviewAspects = userReview.aspects
         this.selectedPizza = userReview.selectedPizza
         this.edit = true

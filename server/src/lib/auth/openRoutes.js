@@ -9,7 +9,7 @@ openRoutes['/api/venue'] = ['GET']
 //this is for routes that has a :param in the url
 const paramRoutes = [
   {
-    route: '/api/venue/name',
+    route: '/api/venue/name/',
     method: 'GET'
   }
 ]

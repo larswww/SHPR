@@ -29,10 +29,9 @@
                     </tr>
                     </thead>
                     <tbody v-if="masters">
-                    <tr  v-for="(venue, index) in masters">
-                        <th scope="row">{{index + 1}}</th>
-                        <td><a :href="/venue/ + venue.name">{{venue.name}}</a>
-
+                    <tr  v-for="(venue, key, i) of masters">
+                        <th scope="row">{{i + 1}}</th>
+                        <td><router-link :to="'/venue/' + venue.name">{{venue.name}}</router-link>
 
                             <template v-for="tag in venue.appliedTags">
                                 <span class="badge badge-pill badge-secondary">{{tag}}</span>

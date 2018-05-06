@@ -3,7 +3,7 @@ import axios from 'axios'
 import store from './store'
 
 const instance = axios.create({
-  baseUrl: 'http://localhost/api'
+  baseUrl: 'http://128.199.164.210/api'
 })
 
 instance.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')

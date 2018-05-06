@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseUrl: 'http://128.199.164.210/api'
+  baseUrl: 'http://128.199.164.210/api/'
 })
 
 // axios.defaults.headers.common['Authorization'] = 'hej'

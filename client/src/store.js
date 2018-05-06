@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from './axios-auth'
 import router from './router'
-import globalAxios from './axios-global'
+// import globalAxios from './axios-global'
 import jwt_decode from 'jwt-decode'
 
 Vue.use(Vuex)
@@ -53,14 +53,14 @@ export default new Vuex.Store({
 
   actions: {
     signup ({commit}, authData) {
-      globalAxios.post('user/signup', authData)
+      axios.post('user/signup', authData) //global
         .then(res => {
           this.dispatch('user', res.data.token)
         })
         .catch(e => console.error(e))
     },
     login ({commit}, authData) {
-      globalAxios.post('user/login', authData)
+      axios.post('user/login', authData) //gobal
         .then(res => {
           this.dispatch('user', res.data.token)
         })
@@ -96,7 +96,7 @@ export default new Vuex.Store({
 
     async fetchVenue ({commit, state}, venueName) {
       try {
-        let res = await globalAxios.get(`venue/name/${venueName}`)
+        let res = await axios.get(`venue/name/${venueName}`) //globl
         commit('venue', res.data)
       } catch (e) {
         debugger

@@ -34,6 +34,7 @@ export default new Vuex.Store({
     clearAuthData (state) {
       state.user = null
       state.token = null
+      state.userReviews = {}
     },
 
     userReviews (state, reviewData) {
@@ -52,19 +53,13 @@ export default new Vuex.Store({
   },
 
   actions: {
-    signup ({commit}, authData) {
-      axios.post('user/signup', authData) //global
-        .then(res => {
-          this.dispatch('user', res.data.token)
-        })
-        .catch(e => console.error(e))
+    async signup ({commit}, authData) {
+      const res = await axios.post('user/signup', authData) //global
+      await this.dispatch('user', res.data.token)
     },
-    login ({commit}, authData) {
-      axios.post('user/login', authData) //gobal
-        .then(res => {
-          this.dispatch('user', res.data.token)
-        })
-        .catch(e => {console.error(e)})
+    async login ({commit}, authData) {
+      const res = await axios.post('user/login', authData)
+      await this.dispatch('user', res.data.token)
     },
 
     logout ({commit}) {
@@ -73,17 +68,17 @@ export default new Vuex.Store({
       router.replace('/')
     },
 
-    tryAutoLogin ({commit}) {
+    async tryAutoLogin ({commit}) {
       const token = localStorage.getItem('token')
       if (!token) return
       commit('authUser', {token})
-      this.dispatch('fetchReviews')
+      await this.dispatch('fetchReviews')
     },
 
     async user ({commit, state}, token) {
       localStorage.setItem('token', token)
       commit('authUser', {token})
-      await this.dispatch('fetchReviews')
+      const res = await this.dispatch('fetchReviews')
       router.replace('/user')
     },
 
@@ -99,14 +94,19 @@ export default new Vuex.Store({
         let res = await axios.get(`venue/name/${venueName}`) //globl
         commit('venue', res.data)
       } catch (e) {
-        debugger
         commit('venue', {error: true, message: e.message})
       }
     },
 
     async fetchReviews ({commit, state}, user) {
-      const res = await axios.get('user/reviews')
-      commit('userReviews', res.data)
+      try {
+        const res = await axios.get('user/reviews')
+        commit('userReviews', res.data)
+      } catch (e) {
+        debugger
+        console.error(e)
+      }
+
     },
 
     async getMasters ({commit, state}) {

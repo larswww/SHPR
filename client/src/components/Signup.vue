@@ -2,7 +2,7 @@
 
         <div class="container">
             <div id="login">
-                <div class="col-sm-4 col-sm-offset-4">
+                <form @submit.prevent="login" class="col-sm-4 col-sm-offset-4">
                     <h2>Log In</h2>
                     <div class="alert alert-danger" v-if="error">
                         <p>{{ error }}</p>
@@ -23,14 +23,13 @@
                                 v-model="credentials.password"
                         >
                     </div>
-                    <button class="btn btn-primary" @click="login()">Access</button>
-                </div>
+                    <button class="btn btn-primary" type="submit">Access</button>
+                </form>
             </div>
 
 
             <div class="container" id="signup">
                 <h2>Signup to SHPR</h2>
-                <div class="signup-form">
                     <form @submit.prevent="signup">
                         <div class="input">
                             <label for="email">Mail</label>
@@ -58,7 +57,6 @@
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     </template>

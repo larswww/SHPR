@@ -13,7 +13,7 @@ class UserController extends Controller {
       await doc.comparePassword(password)
       const role = doc.role
 
-      const token = jwt.sign(JSON.stringify({role, userId: doc._id, email}), process.env.jwt_secret)
+      const token = jwt.sign({role, userId: doc._id, email}, process.env.jwt_secret)
       return res.json({token, error: false})
     } catch (e) {
       console.error('user/controller/login')

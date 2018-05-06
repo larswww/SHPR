@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19b52d06-a4a9-4731-bbe2-ef13b41ab836" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/axios-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/axios-auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Review.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Review.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Signup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Signup.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/User.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/User.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Venue.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Venue.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/auth/openRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/auth/openRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/venue/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/model/venue/controller.js" afterDir="false" />
-    </list>
+    <list default="true" id="19b52d06-a4a9-4731-bbe2-ef13b41ab836" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="store.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="104" column="6" lean-forward="true" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
+            <state relative-caret-position="398">
+              <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
               <folding>
                 <element signature="e#13#34#0" expanded="true" />
               </folding>
@@ -37,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Venue.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Venue.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Venue.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="313">
+              <caret line="50" column="54" lean-forward="true" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -197,8 +186,8 @@
         <option value="$PROJECT_DIR$/client/src/axios-global.js" />
         <option value="$PROJECT_DIR$/client/src/components/User.vue" />
         <option value="$PROJECT_DIR$/client/src/components/Review.vue" />
-        <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/components/Venue.vue" />
+        <option value="$PROJECT_DIR$/client/src/store.js" />
       </list>
     </option>
   </component>
@@ -557,7 +546,7 @@
       <workItem from="1525300902141" duration="457000" />
       <workItem from="1525304298857" duration="544000" />
       <workItem from="1525400518329" duration="21093000" />
-      <workItem from="1525433039639" duration="41664000" />
+      <workItem from="1525433039639" duration="42197000" />
     </task>
     <servers />
   </component>
@@ -594,7 +583,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252859000" />
+    <option name="totallyTimeSpent" value="253392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -607,7 +596,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.497558" weight="0.3268817" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Quokka" order="7" weight="0.32939914" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.47354499" visible="true" weight="0.35913977" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.47354499" weight="0.35913977" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25396827" />
       <window_info id="Project Explorer" order="2" />
@@ -616,7 +605,7 @@
       <window_info anchor="bottom" id="Console" order="7" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48393378" weight="0.30860215" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.48393378" visible="true" weight="0.30860215" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="FAQ Robot" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1049,16 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="104" column="6" lean-forward="true" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
-          <folding>
-            <element signature="e#13#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/User.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-441">
@@ -1075,8 +1054,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Venue.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="313">
+          <caret line="50" column="54" lean-forward="true" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+          <folding>
+            <element signature="e#13#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

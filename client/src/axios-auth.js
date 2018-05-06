@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseUrl: 'http://localhost:5000/api'
+  baseUrl: 'http://128.199.164.210:5000/api'
 })
 
 instance.defaults.headers.common['Authorization'] = localStorage.getItem('token')

@@ -2,10 +2,10 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseUrl: 'http://localhost:5000/api'
+  baseUrl: 'http://128.199.164.210:5000/api'
 })
 
-axios.defaults.baseURL = 'http://localhost:5000/api'
+axios.defaults.baseURL = 'http://128.199.164.210:5000/api'
 // axios.defaults.headers.common['Authorization'] = 'hej'
 axios.defaults.headers.get['Accepts'] = 'application/json'
 

@@ -3,11 +3,10 @@ import axios from 'axios'
 import store from './store'
 
 const instance = axios.create({
-  baseUrl: 'http://128.199.164.210/api'
+  baseUrl: 'http://localhost/api'
 })
 
-instance.defaults.headers.common['Authorization'] = 'Bearer ' + store.state.token
-
+instance.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
 axios.defaults.headers.get['Accepts'] = 'application/json'
 
 const reqInterceptor = axios.interceptors.request.use(config => {

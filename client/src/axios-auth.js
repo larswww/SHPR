@@ -1,11 +1,12 @@
 'use strict'
 import axios from 'axios'
+import store from './store'
 
 const instance = axios.create({
   baseUrl: 'http://128.199.164.210/api'
 })
 
-instance.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+instance.defaults.headers.common['Authorization'] = 'Bearer ' + store.state.token
 
 axios.defaults.headers.get['Accepts'] = 'application/json'
 

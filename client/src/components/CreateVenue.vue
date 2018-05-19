@@ -4,10 +4,10 @@
             <div class="col">
                 <form>
 
-                    <h1>Add a new venue</h1>
+                    <h1>{{ $t('CreateVenue.addNew')}}</h1>
 
                     <div class="form-group row">
-                        <label for="inputVName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputVName" class="col-sm-2 col-form-label">{{ $t('CreateVenue.name')}}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" :v-model="name" id="inputVName"
                                    placeholder="Venue Name">
@@ -15,12 +15,12 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="venueDescription">Short venue description</label>
+                        <label for="venueDescription">{{ $t('CreateVenue.desc')}}</label>
                         <textarea v-model="description" class="form-control" id="venueDescription" rows="3"></textarea>
                     </div>
 
 
-                    <h6>Location(s)</h6>
+                    <h6>{{ $t('CreateVenue.locations')}}</h6>
 
                     <div v-for="address of addresses">
                         <div class="form-group">
@@ -44,7 +44,7 @@
                         <button @click="toggleField($event, false, 'address', 'addresses')" type="button" class="btn btn-secondary btn-sm">-</button>
                     </div>
 
-                    <h6>Venue categories/tags</h6>
+                    <h6>{{ $t('CreateVenue.catTags')}}</h6>
 
 
                     <div class="form-group row">
@@ -61,7 +61,7 @@
                     </div>
 
 
-                    <h6>Add Menu Items</h6>
+                    <h6>{{ $t('CreateVenue.menu')}}</h6>
 
                     <div class="form-row align-items-center" v-for="mi of menu">
                         <div class="col-sm-2 my-1">
@@ -108,7 +108,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button @click="submit()" type="submit" class="btn btn-primary">Submit</button>
+                            <button @click="submit()" type="submit" class="btn btn-primary">{{ $t('global.submit')}}</button>
                         </div>
                     </div>
                 </form>

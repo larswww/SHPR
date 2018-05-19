@@ -1,0 +1,18 @@
+{
+  "global": {
+    "submit": "Submit",
+    "loading": "Loading"
+  },
+
+  "Home": {
+    "listHeading": "Shanghai Pizza Rankings"
+  },
+  "CreateVenue": {
+    "addNew": "Add a new venue",
+    "name": "Name",
+    "desc": "Short venue description",
+    "locations": "Location(s)",
+    "catTags": "Venue Categories & Tags",
+    "menu": "Add menu items"
+  }
+}

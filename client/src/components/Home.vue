@@ -18,7 +18,7 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">🍕</th>
-                        <th scope="col">Shanghai Pizza Rankings</th>
+                        <th scope="col">{{ $t('Home.listHeading')}}</th>
                         <th scope="col"><button class="btn btn-secondary btn-sm dropdown-toggle my-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fal fa-star"></i>
 

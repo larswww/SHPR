@@ -3,8 +3,6 @@
 
         <h2>Your Reviewed Venues</h2>
 
-
-
         <p v-if="loadingReviews">Loading...</p>
 
         <p v-if="reviews && reviews.length === 0">You have no pizza experience! Try and review some of the pizza below and your reviews and experience will appear here.</p>

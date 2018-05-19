@@ -3,6 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from './axios-auth'
 import router from './router'
+import lang from './lang'
 // import globalAxios from './axios-global'
 import jwt_decode from 'jwt-decode'
 
@@ -48,6 +49,10 @@ export default new Vuex.Store({
     masters (state, masters) {
       state.masters = {}
       for (let m of masters) state.masters[m.name] = m
+    },
+
+    setLang (state, locale) {
+      lang.locale = locale
     }
 
   },
@@ -130,7 +135,12 @@ export default new Vuex.Store({
       axios.post('venue/create', venueData).then(res => {
         console.log(res)
       }).catch(e => console.error('createVenue', e))
+    },
+
+    setLang ({commit}, locale) {
+      commit('setLang', locale)
     }
+
   },
 
   getters: {
@@ -158,6 +168,7 @@ export default new Vuex.Store({
       } else {
         return state.masters
       }
-    }
+    },
+
   }
 })

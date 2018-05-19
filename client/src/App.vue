@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <NavTop/>
         <flash-message class="myCustomClass"></flash-message>
         <router-view/>
         <NavBottom/>
@@ -8,11 +9,13 @@
 
 <script>
   import 'es6-promise/auto'
+  import NavTop from './components/global/NavTop'
   import NavBottom from './components/global/NavBottom'
 
   export default {
     name: 'App',
     components: {
+      NavTop,
       NavBottom
     },
 

@@ -1,0 +1,18 @@
+{
+  "global": {
+    "submit": "提交",
+    "loading": "装载"
+  },
+
+  "Home": {
+    "listHeading": "上海最好的比萨饼"
+  },
+  "CreateVenue": {
+    "addNew": "加薪的比萨餐厅",
+    "name": "名字",
+    "desc": "餐厅的小描述",
+    "locations": "地址",
+    "catTags": "餐厅类别和标签",
+    "menu": "菜单"
+  }
+}

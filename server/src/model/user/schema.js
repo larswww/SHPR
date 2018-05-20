@@ -8,7 +8,8 @@ const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   role: { type: String, required: true },
   password: { type: String, required: true },
-  reviewedVenues: [{type: Schema.Types.ObjectId}]
+  reviewedVenues: [{type: Schema.Types.ObjectId}],
+  lang: { type: String, default: 'en'}
 });
 
 // reviewed venues array

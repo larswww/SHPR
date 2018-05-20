@@ -32,6 +32,7 @@ describe('Venue', function () {
   it('it should GET all the venues', (done) => {
     chai.request(server)
       .get('/api/venue')
+      .set('origin', 'http://localhost:8080')
       .end((err, res) => {
         res.should.have.status(200)
         res.body.venues.should.be.a('array')
@@ -43,7 +44,8 @@ describe('Venue', function () {
   it('it should not POST a venue without name', done => {
     chai.request(server)
       .post('/api/venue/create')
-      .set('authorization', adminToken)
+      .set('authorization', 'Bearer ' + adminToken)
+      .set('origin', 'http://localhost:8080')
       .send({city: 'shanghai', description: 'something'})
       .end((err, res) => {
         res.should.have.status(500)
@@ -58,7 +60,8 @@ describe('Venue', function () {
   it('should not let a USER role POST a venue', function (done) {
     chai.request(server)
       .post('/api/venue/create')
-      .set('authorization', userToken)
+      .set('authorization', 'Bearer ' + userToken)
+      .set('origin', 'http://localhost:8080')
       .send({})
       .end(function (err, res) {
         res.should.have.status(403)
@@ -72,7 +75,7 @@ describe('Venue', function () {
     let venue = venues.extra[0]
     chai.request(server)
       .post('/api/venue/create')
-      .set('authorization', adminToken)
+      .set('authorization', 'Bearer ' + adminToken)
       .send(venue)
       .end(function (err, res) {
         done()
@@ -83,6 +86,7 @@ describe('Venue', function () {
   it('should return an array of venues with ADMIN created reviews', function (done) {
     chai.request(server)
       .get('/api/venue/masterReviews')
+      .set('origin', 'http://localhost:8080')
       .end((err, res) => {
         res.should.have.status(200)
         res.body.should.have.property('venues')
@@ -96,7 +100,8 @@ describe('Venue', function () {
   it('should return an array of venues not reviewed by logged in user', function (done) {
     chai.request(server)
       .get('/api/venue/notReviewed')
-      .set('authorization', userToken)
+      .set('authorization', 'Bearer ' + userToken)
+      .set('origin', 'http://localhost:8080')
       .end((err, res) => {
         res.should.have.status(200)
         done()
@@ -107,7 +112,8 @@ describe('Venue', function () {
   it('should return an array of venues reviewed by logged in user', function (done) {
     chai.request(server)
       .get('/api/venue/reviewed')
-      .set('authorization', userToken)
+      .set('authorization', 'Bearer ' + userToken)
+      .set('origin', 'http://localhost:8080')
       .end((err, res) => {
         res.should.have.status(200)
         done()

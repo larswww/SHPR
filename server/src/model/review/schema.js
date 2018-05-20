@@ -7,10 +7,11 @@ const reviewSchema = new Schema({
   venue: {type: Schema.Types.ObjectId, ref: 'venue', required: true}, //todo make this combo unique
   venueName: String,
   selectedPizza: 'String', //todo what if venue names arent unique?
-  aspects: [{name: String, heading: String, text: String, rating: Number}]
+  aspects: [{name: String, heading: String, text: String, rating: Number}],
+  lang: String,
 })
 
 
-reviewSchema.index({user: 1, venue: 1}, {unique: true})
+reviewSchema.index({user: 1, venue: 1, lang: 1}, {unique: true})
 
 module.exports = mongoose.model('review', reviewSchema, 'review')

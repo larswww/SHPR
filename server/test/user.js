@@ -46,6 +46,7 @@ describe('User', () => {
     it('Signup works returning token', done => {
       chai.request(server)
         .post('/api/user/signup')
+        .set('origin', 'http://localhost:8080')
         .send({email, password})
         .end((err, res) => {
           res.should.have.status(201)
@@ -59,6 +60,7 @@ describe('User', () => {
     it('can login returning token', done => {
       chai.request(server)
         .post('/api/user/login')
+        .set('origin', 'http://localhost:8080')
         .send({email, password})
         .end((err, res) => {
           res.should.have.status(200)
@@ -73,7 +75,7 @@ describe('User', () => {
     it('token decodes correctly', done => {
       let req = {}
       req.headers = {}
-      req.headers.authorization = createdUserToken
+      req.headers.authorization = 'Bearer ' + createdUserToken
       let res = {}
       res.locals = {}
       authorize(req, res, (authRes) => {
@@ -89,7 +91,8 @@ describe('User', () => {
     it('ADMIN route as USER is not possible', function (done) {
       chai.request(server)
         .post('/api/venue/create')
-        .set('authorization', createdUserToken)
+        .set('authorization', 'Bearer ' + createdUserToken)
+        .set('origin', 'http://localhost:8080')
         .send({})
         .end(function (err, res) {
           expect(res).to.have.status(403)

@@ -6,7 +6,7 @@ class VenueController extends Controller {
 
   async createVenue(req, res, next) {
     try {
-      const venue = await this.facade.createVenue(req.body)
+      const venue = await this.facade.createVenue(req.body, res.locals.lang, res.locals.city)
       return res.status(201).json({venue})
     } catch (e) {
       console.error('createVenue', e)
@@ -17,22 +17,19 @@ class VenueController extends Controller {
 
   async get(req, res, next) {
     try {
-      const venues = await this.facade.find({})
+      const venues = await this.facade.find({lang: res.locals.lang, city: res.locals.city})
       return res.status(200).json({message: 'Get all venues', venues: venues})
     } catch (e) {
       console.error(e)
       return next(e)
      // return res.status(400).json({message: 'Could not get venues'})
-
     }
   }
 
-
   async getVenue(req, res, next) {
-
     try {
       const name = req.params.name
-      const venue = await this.facade.findOne({name})
+      const venue = await this.facade.findOne({name, lang: res.locals.lang, city: res.locals.city})
       if (!venue) console.error('handle venue doesnt exist')
       res.status(200).json(venue._doc)
     } catch (e) {
@@ -42,7 +39,7 @@ class VenueController extends Controller {
 
   async masterReviewed(req, res, next) {
     try {
-      const reviewed = await this.facade.getMasterReviewedVenues()
+      const reviewed = await this.facade.getMasterReviewedVenues(res.locals.city, res.locals.lang)
       return res.status(200).json(reviewed)
     } catch (e) {
       next(e)
@@ -60,7 +57,6 @@ class VenueController extends Controller {
     // const notReviewed = await this.find(req, res, next)
     // return res.status(200).json({notReviewed: notReviewed})
   }
-
 
 }
 

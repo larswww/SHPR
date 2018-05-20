@@ -47,7 +47,7 @@ async function seedUsers () {
 }
 
 async function seedVenues () {
-  for (let venue of venues.seed) await venueFacade.createVenue(venue)
+  for (let venue of venues.seed) await venueFacade.createVenue(venue, venue.city, venue.lang)
 }
 
 async function seedReviews () {
@@ -74,7 +74,9 @@ function standardCallback () {
     locals: {
       user: {
         id: ''
-      }
+      },
+      city: 'shanghai',
+      lang: 'en'
     }
   }
 }

@@ -44,6 +44,7 @@ describe('Review', async function () {
   it('should require login to POST review', function (done) {
     chai.request(server)
       .post('/api/review')
+      .set('origin', 'http://localhost:8080')
       .send(reviews[0])
       .end((err, res) => {
         res.should.have.status(401)

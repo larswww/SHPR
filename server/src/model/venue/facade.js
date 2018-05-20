@@ -7,10 +7,12 @@ const mongoose = require('mongoose')
 
 class VenueFacade extends Facade {
 
-  async createVenue(formData) {
-    let doc = await this.create({name: formData.name,
+  async createVenue (formData, city, lang) {
+    let doc = await this.create({
+      name: formData.name,
       description: formData.desc,
-     })
+      lang, city
+    })
 
     const id = doc._id
     await this.addToSet(id, 'addresses', formData.addresses)
@@ -18,13 +20,13 @@ class VenueFacade extends Facade {
     await this.addToSet(id, 'menu', formData.menu.items)
   }
 
-  async getMasterReviewedVenues() {
+  async getMasterReviewedVenues (city, lang) {
     const admins = await userFacade.getAdmins()
     const adminIds = admins.map(admin => admin._id)
     const adminReviews = await mongoose.model('review').find({user: {$in: adminIds}})
     // const adminReviews = await reviewFacade.find({user: {$in: adminIds}})
     const adminReviewIds = adminReviews.map(ar => ar.venue)
-    const venues = await this.find({_id: {$in: adminReviewIds}})
+    const venues = await this.find({_id: {$in: adminReviewIds}, city, lang})
 
     //todo this is garbage
     const res = []

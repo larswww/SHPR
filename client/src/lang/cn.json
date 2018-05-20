@@ -1,7 +1,8 @@
 {
   "global": {
     "submit": "提交",
-    "loading": "装载"
+    "loading": "装载",
+    "logout": "注销"
   },
 
   "Home": {
@@ -14,5 +15,31 @@
     "locations": "地址",
     "catTags": "餐厅类别和标签",
     "menu": "菜单"
+  },
+
+  "User": {
+    "noExp": "你没有比萨体验！尝试并查看下面的一些披萨，你的评论和体验将出现在这里。",
+    "toTry": "尝试披萨",
+    "loginTo": "登录查看用户页面",
+    "yourReviewed": "你评论的场地"
+  },
+
+  "Signup": {
+    "signup": "注册到 上海PR",
+    "password": "密码",
+    "email": "电子邮件",
+    "confirmPassword": "确认密码"
+  },
+  "Review": {
+    "review": "评论",
+    "edit": "编辑你的",
+    "noAuth": "您需要登录才能查看"
+  },
+  "Venue": {
+    "editReview": "编辑您的评论",
+    "writeReview": "撰写评论",
+    "notYetReviewed": "尚未审核",
+    "signupTo": "注册到评论",
+    "imageBlurb": "仅上传比萨饼图片，如果您上传的比萨饼图片已经存在，我们将以您的图片为特色，如果它比现有图片更好，获取图片功能会导致您的比萨业力"
   }
 }

@@ -17,7 +17,7 @@ export default new Vuex.Store({
     venues: {},
     masters: {
       notInitialized: true
-    }
+    },
   },
   mutations: {
     authUser: (state, userData) => {
@@ -25,6 +25,7 @@ export default new Vuex.Store({
         state.token = userData.token
         state.user = jwt_decode(userData.token)
         state.user[state.user.role] = true
+
       } catch (e) {
         console.error('false token')
         state.user = null
@@ -53,6 +54,7 @@ export default new Vuex.Store({
 
     setLang (state, locale) {
       lang.locale = locale
+      state.language = locale
     }
 
   },
@@ -138,6 +140,7 @@ export default new Vuex.Store({
     },
 
     setLang ({commit}, locale) {
+      localStorage.setItem('language', locale)
       commit('setLang', locale)
     }
 

@@ -33,9 +33,7 @@
                 <!-- Slide with blank fluid image to maintain slide aspect ratio -->
                 <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
                     <p>
-                        Upload an image of a pizza only. If an image of the pizza you upload already exists, we
-                        will feature your image if it's better than the existing picture. Getting an image featured
-                        earns you pizza karma.
+                        {{$t('Venue.imageBlurb')}}
                     </p>
                 </b-carousel-slide>
 
@@ -55,8 +53,8 @@
         </div>
 
         <div class="row">
-            <button v-if="userReviewed" class="btn-primary btn-link"><router-link :to="'/venue/' + venue.name + '/review'">Edit your Review</router-link></button>
-            <button v-else class="btn-primary btn-link"><router-link :to="'/venue/' + venue.name + '/review'">Write Review</router-link></button>
+            <button v-if="userReviewed" class="btn-primary btn-link"><router-link :to="'/venue/' + venue.name + '/review'">{{$t('Venue.editReview')}}</router-link></button>
+            <button v-else class="btn-primary btn-link"><router-link :to="'/venue/' + venue.name + '/review'">{{$t('Venue.writeReview')}}</router-link></button>
 
         </div>
 
@@ -79,8 +77,8 @@
 
                 </b-tab>
                 <b-tab v-else title="Review" active>
-                    <p v-if="auth">Not yet reviewed</p>
-                    <p v-else>Signup to review</p>
+                    <p v-if="auth">{{$t('Venue.notYetReviewed')}}</p>
+                    <p v-else>{{$t('Venue.singupTo')}}</p>
 
                 </b-tab>
 

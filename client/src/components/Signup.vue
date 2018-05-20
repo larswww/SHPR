@@ -3,7 +3,7 @@
         <div class="container">
             <div id="login">
                 <form @submit.prevent="login" class="col-sm-4 col-sm-offset-4">
-                    <h2>Log In</h2>
+                    <h2>{{$t('global.login')}}</h2>
                     <div class="alert alert-danger" v-if="error">
                         <p>{{ error }}</p>
                     </div>
@@ -23,30 +23,30 @@
                                 v-model="credentials.password"
                         >
                     </div>
-                    <button class="btn btn-primary" type="submit">Access</button>
+                    <button class="btn btn-primary" type="submit">{{$t('global.login')}}</button>
                 </form>
             </div>
 
 
             <div class="container" id="signup">
-                <h2>Signup to SHPR</h2>
+                <h2>{{$t('Signup.signup')}}</h2>
                     <form @submit.prevent="signup">
                         <div class="input">
-                            <label for="email">Mail</label>
+                            <label for="email">{{$t('Signup.email')}}</label>
                             <input
                                     type="email"
                                     id="email"
                                     v-model="email">
                         </div>
                         <div class="input">
-                            <label for="password">Password</label>
+                            <label for="password">{{$t('Signup.password')}}</label>
                             <input
                                     type="password"
                                     id="password"
                                     v-model="password">
                         </div>
                         <div class="input">
-                            <label for="confirm-password">Confirm Password</label>
+                            <label for="confirm-password">{{$('Signup.confirmPassword')}}</label>
                             <input
                                     type="password"
                                     id="confirm-password"
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="submit">
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-primary" type="submit">{{$t('global.submit')}}</button>
                         </div>
                     </form>
             </div>

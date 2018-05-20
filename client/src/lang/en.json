@@ -1,9 +1,10 @@
 {
   "global": {
     "submit": "Submit",
-    "loading": "Loading"
+    "loading": "Loading",
+    "logout": "Logout",
+    "login": "Login"
   },
-
   "Home": {
     "listHeading": "Shanghai Pizza Rankings"
   },
@@ -14,5 +15,29 @@
     "locations": "Location(s)",
     "catTags": "Venue Categories & Tags",
     "menu": "Add menu items"
+  },
+  "User": {
+    "noExp": "You have no pizza experience! Try and review some of the pizza below and your reviews and experience will appear here.",
+    "toTry": "Pizza to try",
+    "loginTo": "Login to see userpage",
+    "yourReviewed": "Your reviewed venues"
+  },
+  "Signup": {
+    "signup": "Signup to SHPR",
+    "password": "Password",
+    "email": "E-mail",
+    "confirmPassword": "Confirm password"
+  },
+  "Review": {
+    "review": "Review",
+    "edit": "Edit your",
+    "noAuth": "You need to login to review"
+  },
+  "Venue": {
+    "editReview": "Edit your Review",
+    "writeReview": "Write a Review",
+    "notYetReviewed": "Not yet reviewed",
+    "signupTo": "Signup to Review",
+    "imageBlurb": "Upload an image of a pizza only. If an image of the pizza you upload already exists, we will feature your image if its better than the existing picture. Getting an image featuredearns you pizza karma."
   }
 }

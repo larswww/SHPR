@@ -1,11 +1,11 @@
 <template>
     <div v-if="auth" class="container" id="userpage">
 
-        <h2>Your Reviewed Venues</h2>
+        <h2>{{$t('User.yourReviewed')}}</h2>
 
-        <p v-if="loadingReviews">Loading...</p>
+        <p v-if="loadingReviews">{{$t('global.loading')}}}...</p>
 
-        <p v-if="reviews && reviews.length === 0">You have no pizza experience! Try and review some of the pizza below and your reviews and experience will appear here.</p>
+        <p v-if="reviews && reviews.length === 0">{{$t('User.noExp')}}</p>
 
         <ul v-for="r in reviews">
             <li>
@@ -17,8 +17,8 @@
         </ul>
 
 
-        <h2>Pizza to try</h2>
-        <p v-if="loadingNotReviewed">Loading...</p>
+        <h2>{{$t('User.toTry')}}</h2>
+        <p v-if="loadingNotReviewed">{{$t('global.loading')}}...</p>
 
         <ul v-for="r in notReviewed">
             <li>
@@ -29,10 +29,10 @@
             </li>
         </ul>
 
-        <button class="btn-danger" v-if="auth" @click="logout()">Logout</button>
+        <button class="btn-danger" v-if="auth" @click="logout()">{{$t('global.logout')}}</button>
     </div>
     <div v-else class="container">
-        <h2>Login to see userpage</h2>
+        <h2>{{$t('User.loginTo')}}</h2>
 
     </div>
 

@@ -2,8 +2,8 @@
 
     <div v-if="auth" class="container">
         <b-form @submit="onSubmit">
-            <h1 v-if="edit">Review {{venue.name}}</h1>
-            <h1 v-else>Edit your {{venue.name}} Review</h1>
+            <h1 v-if="edit">{{$t('Review.review')}} {{venue.name}}</h1>
+            <h1 v-else>{{$(t('Review.edit'))}} {{venue.name}} {{$t('Review.review')}}</h1>
 
             <b-form-select v-model="selectedPizza" :options="pizzaChoice" class="mb-3" size="sm"/>
 
@@ -19,13 +19,13 @@
             </div>
 
 
-            <b-button type="submit" variant="primary">Submit Review</b-button>
+            <b-button type="submit" variant="primary">{{$t('global.submit')}} {{$t('Review.review')}}</b-button>
         </b-form>
     </div>
 
     <div v-else class="container">
 
-        <p>Not authed</p>
+        <p>{{$t('Review.noAuth')}}</p>
     </div>
 
 

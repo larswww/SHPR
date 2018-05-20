@@ -2,10 +2,10 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseUrl: 'http://128.199.164.210/api/'
+  baseUrl: process.env.base_url + '/api/'
 })
 
-// axios.defaults.headers.common['Authorization'] = 'hej'
+axios.defaults.headers.common['Language'] = '' + localStorage.getItem('language')
 axios.defaults.headers.get['Accepts'] = 'application/json'
 
 const reqInterceptor = axios.interceptors.request.use(config => {

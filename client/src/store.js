@@ -142,6 +142,20 @@ export default new Vuex.Store({
     setLang ({commit}, locale) {
       localStorage.setItem('language', locale)
       commit('setLang', locale)
+    },
+
+    photos({commit}, formData) {
+
+      return axios.post('venue/photos', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      // get data
+        .then(x => x.data)
+        // add url field
+        // .then(x => x.map(img => Object.assign({},
+        //   img, { url: `${BASE_URL}/images/${img.id}` })));
     }
 
   },

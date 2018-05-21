@@ -4,12 +4,18 @@ openRoutes['/api/user/login'] = ['GET', 'POST']
 openRoutes['/api/user/signup'] = ['POST']
 openRoutes['/api/venue/masterReviews'] = ['GET']
 openRoutes['/api/venue'] = ['GET']
+openRoutes['/api/venue/photos'] = ['GET']
 
 
 //this is for routes that has a :param in the url
 const paramRoutes = [
   {
     route: '/api/venue/name/',
+    method: 'GET'
+  },
+
+  {
+    route: '/uploads/',
     method: 'GET'
   }
 ]

@@ -46,7 +46,7 @@
                                     v-model="password">
                         </div>
                         <div class="input">
-                            <label for="confirm-password">{{$('Signup.confirmPassword')}}</label>
+                            <label for="confirm-password">{{$t('Signup.confirmPassword')}}</label>
                             <input
                                     type="password"
                                     id="confirm-password"

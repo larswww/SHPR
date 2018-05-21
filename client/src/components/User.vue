@@ -1,7 +1,7 @@
 <template>
     <div v-if="auth" class="container" id="userpage">
 
-        <h2>{{$t('User.yourReviewed')}}</h2>
+        <h2>{{ $t('User.yourReviewed') }}</h2>
 
         <p v-if="loadingReviews">{{$t('global.loading')}}}...</p>
 

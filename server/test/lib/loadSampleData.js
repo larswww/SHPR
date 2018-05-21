@@ -3,6 +3,7 @@ const seedDB = require('../../src/lib/seedDB')
 const userFacade = require('../../src/model/user/facade')
 const userController = require('../../src/model/user/controller')
 const venueFacade = require('../../src/model/venue/facade')
+const venueController = require('../../src/model/venue/controller')
 const reviewFacade = require('../../src/model/review/facade')
 const reviewController = require('../../src/model/review/controller')
 
@@ -13,6 +14,7 @@ module.exports = async function () {
   await seedUsers()
   await seedVenues()
   await seedReviews()
+  await seedPhotos()
 
   let userToken = ''
   await userController.login({
@@ -60,6 +62,13 @@ async function seedReviews () {
     else cb.locals.user._id = user._id //user created reviews
     await reviewController.saveReview({body: reviews.seed[i]}, cb, nextError)
   }
+}
+
+async function seedPhotos () {
+  const files = []
+  for (let i = 1; i < 6; i++) files.push({filename:`pizza${i}.jpeg`})
+  await venueController.photos({files, body: {venueName: 'Bella Napoli'}}, standardCallback(), nextError)
+
 }
 
 function standardCallback () {

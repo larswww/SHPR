@@ -10,9 +10,9 @@ const venueSchema = new Schema({
   addresses: {type: Array, default: []},
   appliedTags: {type: Array, default: []},
   menu: Object,
+  photos: [String]
 })
 
 venueSchema.index({name: 1, lang: 1}, {unique: true})
-
 
 module.exports = mongoose.model('venue', venueSchema, 'venue')

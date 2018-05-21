@@ -5,8 +5,13 @@ const localization = ['chiangmai']
 module.exports = function (req, res, next) {
 
   res.locals.lang = req.headers.language || 'en'
+  if (!req.headers.origin) {
+    res.locals.city = 'shanghai'
+    return next()
+  }
 
-  if (req.headers.origin.indexOf(process.env.base_url) === 0) {
+
+  if (req.headers.origin.indexOf(process.env[`${process.env.NODE_ENV}base_url`]) === 0) {
     res.locals.city = 'shanghai'
     return next()
   }

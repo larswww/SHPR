@@ -1,6 +1,9 @@
 <template>
 
     <div v-if="auth" class="container">
+
+        <PhotoUpload :venueName="venue.name"></PhotoUpload>
+
         <b-form @submit="onSubmit">
             <h1 v-if="edit">{{$t('Review.review')}} {{venue.name}}</h1>
             <h1 v-else>{{$(t('Review.edit'))}} {{venue.name}} {{$t('Review.review')}}</h1>
@@ -21,7 +24,10 @@
 
             <b-button type="submit" variant="primary">{{$t('global.submit')}} {{$t('Review.review')}}</b-button>
         </b-form>
+
     </div>
+
+
 
     <div v-else class="container">
 
@@ -33,10 +39,12 @@
 
 <script>
   import StarRating from 'vue-star-rating'
+  import PhotoUpload from './global/PhotoUpload'
 
   export default {
     name: 'review',
     components: {
+      PhotoUpload,
       StarRating
     },
     data () {
@@ -102,7 +110,7 @@
       this.loading = false
       this.venue = this.$store.getters.venue[nameParam]
       this.buildPizzaSelect()
-      if (!this.$store.getters.review[nameParam]) await this.$store.dispatch('userReviews')
+      if (!this.$store.getters.review[nameParam]) await this.$store.dispatch('fetchReviews')
 
       const userReview = this.$store.getters.review[nameParam]
       if (userReview) {

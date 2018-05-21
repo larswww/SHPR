@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
 
-            <b-carousel id="carousel1"
+            <b-carousel v-if="venue.photos.length" id="carousel1"
                         style="text-shadow: 1px 1px 2px #333;"
                         controls
                         indicators
@@ -15,27 +15,12 @@
                         @sliding-end="onSlideEnd"
             >
 
-                <b-carousel-slide caption="Menu item/pizza name"
-                                  text="Description of the pizza"
-                                  img-src="static/pizza1.jpeg"
-                ></b-carousel-slide>
+                <template v-for="photo in venue.photos">
+                    <b-carousel-slide
+                            :img-src="`${baseurl}${photo}`"
+                    ></b-carousel-slide>
+                </template>
 
-                <b-carousel-slide caption="Diavola"
-                                  text="Tomato, mozzarella, spicy salami, black olives"
-                                  img-src="static/pizza2.jpeg"
-                ></b-carousel-slide>
-
-                <b-carousel-slide caption="Calzone"
-                                  text="Half calzone with mozzarella and love"
-                                  img-src="static/pizza1.jpeg"
-                ></b-carousel-slide>
-
-                <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-                <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-                    <p>
-                        {{$t('Venue.imageBlurb')}}
-                    </p>
-                </b-carousel-slide>
 
             </b-carousel>
 
@@ -53,8 +38,12 @@
         </div>
 
         <div class="row">
-            <button v-if="userReviewed" class="btn-primary btn-link"><router-link :to="'/venue/' + venue.name + '/review'">{{$t('Venue.editReview')}}</router-link></button>
-            <button v-else class="btn-primary btn-link"><router-link :to="'/venue/' + venue.name + '/review'">{{$t('Venue.writeReview')}}</router-link></button>
+            <button v-if="userReviewed" class="btn-primary btn-link">
+                <router-link :to="'/venue/' + venue.name + '/review'">{{$t('Venue.editReview')}}</router-link>
+            </button>
+            <button v-else class="btn-primary btn-link">
+                <router-link :to="'/venue/' + venue.name + '/review'">{{$t('Venue.writeReview')}}</router-link>
+            </button>
 
         </div>
 
@@ -103,7 +92,7 @@
                 </b-tab>
             </b-tabs>
         </div>
-        </div>
+    </div>
 </template>
 
 <script>
@@ -120,10 +109,13 @@
           addresses: [],
           tags: [],
           menu: [],
+          photos: [],
         },
         loading: true,
         review: false,
         userReviewed: false,
+        baseurl: 'http://localhost:5000/uploads/',
+
       }
     },
     computed: {

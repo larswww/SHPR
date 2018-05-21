@@ -2,6 +2,17 @@
 const controller = require('./controller');
 const Router = require('express').Router;
 const router = new Router();
+const multer = require('multer')
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, `${process.env.upload_path}/`)
+  },
+  filename: function (req, file, cb) {
+    let name = `${Date.now()}-${file.originalname}`
+    cb(null, name)
+  }
+})
+const upload = multer({storage})
 const checkRole = require('../../lib/auth/checkRole');
 
 router.route('/create')
@@ -21,5 +32,9 @@ router.route('/reviewed')
 
 router.route('/notReviewed')
   .get((...args) => controller.getNotReviewed(...args))
+
+router.route('/photos')
+  .post(checkRole(['ADMIN', 'USER']), upload.array('photos'), (...args) => controller.photos(...args))
+  .get((...args) => controller.getPhotos(...args))
 
 module.exports = router

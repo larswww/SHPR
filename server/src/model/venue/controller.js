@@ -58,6 +58,24 @@ class VenueController extends Controller {
     // return res.status(200).json({notReviewed: notReviewed})
   }
 
+  async photos(req, res, next) {
+    const files = req.files.map(x => x.filename)
+    await this.facade.addToSet({name: req.body.venueName, lang: res.locals.lang}, 'photos', files)
+    return res.status(201).json({files})
+  }
+
+  async getPhotos(req, res, next) {
+    try {
+      const bothLangVenues = await this.facade.find({name: req.params.name, city: res.locals.city})
+      let photos = new Set()
+      for (let venue of bothLangVenues) for (let photo of venue.photos) photos.add(photo)
+      return res.status(200).json({photos: Array.from(photos)})
+    } catch (e) {
+      return next(e)
+
+    }
+  }
+
 }
 
 module.exports = new VenueController(Facade)

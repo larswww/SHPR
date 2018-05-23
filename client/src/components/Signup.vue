@@ -77,20 +77,20 @@
       }
     },
     methods: {
-      signup () {
+      async signup () {
         const formData = {
           email: this.email,
           password: this.password,
           confirmPassword: this.confirmPassword
         }
-        this.$store.dispatch('signup', formData)
+        await this.$store.dispatch('signup', formData)
       },
-      login () {
+      async login () {
         const credentials = {
           email: this.credentials.email,
           password: this.credentials.password
         }
-        this.$store.dispatch('login', credentials)
+        await this.$store.dispatch('login', credentials)
       }
     }
   }

@@ -7,8 +7,8 @@
 
         <p v-if="reviews && reviews.length === 0">{{$t('User.noExp')}}</p>
 
-        <ul v-for="r in reviews">
-            <li>
+        <ul>
+            <li v-for="r in reviews">
                 <router-link :to="'/venue/' + r.name">{{r.name}}</router-link>
                 <template v-for="tag in r.tags">
                     <span class="badge badge-pill badge-secondary">{{tag}}</span>
@@ -20,8 +20,8 @@
         <h2>{{$t('User.toTry')}}</h2>
         <p v-if="loadingNotReviewed">{{$t('global.loading')}}...</p>
 
-        <ul v-for="r in notReviewed">
-            <li>
+        <ul>
+            <li v-for="r in notReviewed">
                 <router-link :to="'/venue/' + r.name">{{r.name}}</router-link>
                 <template v-for="tag in r.tags">
                     <span class="badge badge-pill badge-secondary">{{tag}}</span>

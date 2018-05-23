@@ -84,6 +84,7 @@ export default new Vuex.Store({
 
     async user ({commit, state}, token) {
       localStorage.setItem('token', token)
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
       commit('authUser', {token})
       const res = await this.dispatch('fetchReviews')
       router.replace('/user')
@@ -110,7 +111,6 @@ export default new Vuex.Store({
         const res = await axios.get('user/reviews')
         commit('userReviews', res.data)
       } catch (e) {
-        debugger
         console.error(e)
       }
 

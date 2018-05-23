@@ -1,23 +1,13 @@
-import { mount,shallow } from '@vue/test-utils'
-import Venue from '@/components/Venue'
-import Vue from 'vue/types/index'
+import {expect} from 'chai'
+import { shallowMount } from '@vue/test-utils'
+import Venue from '../../../src/components/Venue'
 
-describe('Venue', () => {
-
-
-  it('renders a vue instance', () => {
-    expect(mount(Venue).isVueInstance()).to.equal(true);
-  });
-
-
-})
-
-
-describe('Venue', () => {
-  it('renders a vue instance', () => {
-    const Constructor = Vue.extend(Venue)
-    const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent)
-      .to.equal('Welcome to Your Vue.js App')
+describe('Venue.vue', () => {
+  it('renders ', () => {
+    const wrapper = shallowMount(Venue)
+    wrapper.find('button').trigger('click')
+    expect(wrapper.find('div').text()).contains('1')
   })
+
 })
+

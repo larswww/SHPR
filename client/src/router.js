@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import store from './store'
 
 import Home from './components/Home'
-import Login from './components/Login'
 import Signup from './components/Signup'
 import User from './components/User'
 import CreateVenue from './components/CreateVenue'
@@ -17,11 +16,6 @@ const routes = [
     path: '/',
     component: Home
   },
-
-  {
-    path: '/login',
-    component: Login
-  },
   {
     path: '/signup',
     component: Signup
@@ -33,7 +27,7 @@ const routes = [
       if (store.state.token) {
         next()
       } else {
-        next('/login')
+        next('/signup')
       }
     }
   },

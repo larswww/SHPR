@@ -11,7 +11,7 @@ if (window.location.hostname.indexOf('.')) city = window.location.hostname.split
 axios.defaults.headers.get['Accepts'] = 'application/json'
 axios.defaults.baseURL = process.env.base_url + '/api/';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
-axios.defaults.headers.common['Language'] = '' + localStorage.getItem('language')
+axios.defaults.headers.common['Language'] = localStorage.getItem('language') || 'cn'
 
 
 const reqInterceptor = axios.interceptors.request.use(config => {

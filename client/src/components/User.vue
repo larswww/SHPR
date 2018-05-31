@@ -30,6 +30,14 @@
         </ul>
 
         <button class="btn-danger" v-if="auth" @click="logout()">{{$t('global.logout')}}</button>
+
+        <div v-if="isAdmin">
+            <h2>Admin</h2>
+            <router-link :to="'/createVenue/'">Create New Venue</router-link>
+
+        </div>
+
+
     </div>
     <div v-else class="container">
         <h2>{{$t('User.loginTo')}}</h2>
@@ -59,6 +67,10 @@
     computed: {
       auth () {
         return this.$store.getters.isAuthenticated
+      },
+
+      isAdmin () {
+        return this.$store.getters.isAdmin
       }
     },
     methods: {

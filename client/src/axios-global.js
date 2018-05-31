@@ -5,7 +5,7 @@ const instance = axios.create({
   baseUrl: process.env.base_url + '/api/'
 })
 
-axios.defaults.headers.common['Language'] = '' + localStorage.getItem('language')
+axios.defaults.headers.common['Language'] = localStorage.getItem('language') || 'cn'
 axios.defaults.headers.get['Accepts'] = 'application/json'
 
 const reqInterceptor = axios.interceptors.request.use(config => {

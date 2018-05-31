@@ -10,6 +10,7 @@ class VenueFacade extends Facade {
   async createVenue (formData, city, lang) {
     let doc = await this.create({
       name: formData.name,
+      nameLc: formData.name.toLowerCase(),
       description: formData.desc,
       lang, city
     })

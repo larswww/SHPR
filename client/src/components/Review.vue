@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="auth" class="container">
+    <div v-if="auth" class="container" id="review">
 
         <PhotoUpload :venueName="venue.name"></PhotoUpload>
 
@@ -105,7 +105,7 @@
     async created () {
       this.buildReviewAspects()
 
-      const nameParam = this.$route.params.name
+      const nameParam = this.$route.params.name.toLowerCase()
       if (!this.$store.getters.venue[nameParam]) await this.$store.dispatch('fetchVenue', nameParam)
       this.loading = false
       this.venue = this.$store.getters.venue[nameParam]

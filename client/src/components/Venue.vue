@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" id="venue">
         <div class="row">
 
             <b-carousel v-if="venue.photos.length" id="carousel1"
@@ -134,7 +134,7 @@
 
     async created () {
 
-      const nameParam = this.$route.params.name
+      const nameParam = this.$route.params.name.toLowerCase()
 
       this.userReviewed = this.$store.getters.review[nameParam]
 

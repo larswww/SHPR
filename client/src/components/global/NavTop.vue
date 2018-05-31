@@ -37,7 +37,6 @@
 
     created () {
       if (window.location.hostname !== '0.0.0.0' && window.location.hostname.indexOf('.')) this.city = window.location.hostname.split('.')[0]
-
       // if user has language set to a lang not available for this city reset it to english
       const currentLang = localStorage.getItem('language')
       if (currentLang && currentLang !== 'en') {

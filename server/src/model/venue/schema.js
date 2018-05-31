@@ -7,6 +7,7 @@ const venueSchema = new Schema({
   city: String,
   description: String,
   name: {type: String, required: true},
+  nameLc: {type: String, required: true},
   addresses: {type: Array, default: []},
   appliedTags: {type: Array, default: []},
   menu: Object,

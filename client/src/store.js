@@ -40,16 +40,16 @@ export default new Vuex.Store({
     },
 
     userReviews (state, reviewData) {
-      for (let u of reviewData) state.userReviews[u.venueName] = u
+      for (let u of reviewData) state.userReviews[u.venueName.toLowerCase()] = u
     },
 
     venue (state, venue) {
-      state.venues[venue.name] = venue
+      state.venues[venue.name.toLowerCase()] = venue
     },
 
     masters (state, masters) {
       state.masters = {}
-      for (let m of masters) state.masters[m.name] = m
+      for (let m of masters) state.masters[m.name.toLowerCase()] = m
     },
 
     setLang (state, locale) {
@@ -139,9 +139,11 @@ export default new Vuex.Store({
       }).catch(e => console.error('createVenue', e))
     },
 
-    setLang ({commit}, locale) {
+    async setLang ({commit}, locale) {
       localStorage.setItem('language', locale)
+      axios.defaults.headers.common['Language'] = locale
       commit('setLang', locale)
+      await this.dispatch('getMasters')
     },
 
     photos({commit}, formData) {
@@ -167,6 +169,12 @@ export default new Vuex.Store({
     isAuthenticated (state) {
       return state.user !== null
     },
+
+    isAdmin (state) {
+      if (!state.user || !state.user.role) return false
+      return state.user.role === 'ADMIN'
+    },
+
     token (state) {
       return state.token
     },

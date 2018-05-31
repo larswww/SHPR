@@ -29,7 +29,7 @@ class VenueController extends Controller {
   async getVenue(req, res, next) {
     try {
       const name = req.params.name
-      const venue = await this.facade.findOne({name, lang: res.locals.lang, city: res.locals.city})
+      const venue = await this.facade.findOne({$or: [{name}, {nameLc: req.params.name.toLowerCase()}], lang: res.locals.lang, city: res.locals.city})
       if (!venue) console.error('handle venue doesnt exist')
       res.status(200).json(venue._doc)
     } catch (e) {
@@ -46,13 +46,16 @@ class VenueController extends Controller {
     }
   }
 
+  //todo should
   async getReviewed(req, res, next) {
-    req.query = {_id: {$in: res.locals.user.reviewedVenues}}
+    req.query = {_id: {$in: res.locals.user.reviewedVenues}, city: res.locals.city, lang: res.locals.lang}
     return await this.find(req, res, next)
   }
 
   async getNotReviewed(req, res, next) {
-    req.query = {_id: {$nin: res.locals.user.reviewedVenues}}
+    const venuesReviewed = await this.facade.find({_id: {$in: res.locals.user.reviewedVenues}, city: res.locals.city, lang: res.locals.lang})
+    const venueNames = venuesReviewed.map(x => x.name)
+    req.query = {name: {$nin: venueNames}, city: res.locals.city, lang: res.locals.lang}
     return await this.find(req, res, next)
     // const notReviewed = await this.find(req, res, next)
     // return res.status(200).json({notReviewed: notReviewed})
@@ -66,7 +69,7 @@ class VenueController extends Controller {
 
   async getPhotos(req, res, next) {
     try {
-      const bothLangVenues = await this.facade.find({name: req.params.name, city: res.locals.city})
+      const bothLangVenues = await this.facade.find({$or: [{name: req.params.name}, {nameLc: req.params.name.toLowerCase()}], city: res.locals.city})
       let photos = new Set()
       for (let venue of bothLangVenues) for (let photo of venue.photos) photos.add(photo)
       return res.status(200).json({photos: Array.from(photos)})

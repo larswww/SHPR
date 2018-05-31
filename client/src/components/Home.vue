@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" id="home">
         <div class="row">
             <div class="col">
                 <div class="btn-toolbar my-3" role="toolbar" aria-label="Toolbar with button groups">

@@ -3,7 +3,7 @@
 module.exports = {
 
   'open login/signup page from home': function (browser) {
-    browser.url(browser.globals.devServerURL + '#/signup')
+    browser.url(`${browser.globals.devServerURL}signup`)
       .waitForElementVisible('#login', 5000)
   },
 

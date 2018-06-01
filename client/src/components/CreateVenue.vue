@@ -9,7 +9,7 @@
                     <div class="form-group row">
                         <label for="inputVName" class="col-sm-2 col-form-label">{{ $t('CreateVenue.name')}}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" :v-model="name" id="inputVName"
+                            <input type="text" class="form-control" v-model="name" id="inputVName"
                                    placeholder="Venue Name">
                         </div>
                     </div>

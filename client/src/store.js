@@ -9,6 +9,7 @@ import jwt_decode from 'jwt-decode'
 
 Vue.use(Vuex)
 
+
 export default new Vuex.Store({
   state: {
     token: null,
@@ -66,7 +67,7 @@ export default new Vuex.Store({
     },
     async login ({commit}, authData) {
       try {
-        const res = await axios.post('user/login', authData)
+        const res = await Vue.http.post('user/login', authData)
         await this.dispatch('user', res.data.token)
       } catch (e) {
         console.error(e)

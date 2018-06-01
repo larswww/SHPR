@@ -63,7 +63,7 @@
 
                     <h6>{{ $t('CreateVenue.menu')}}</h6>
 
-                    <div class="form-row align-items-center" v-for="mi of menu">
+                    <div class="form-row align-items-center" v-for="mi of menu.items">
                         <div class="col-sm-2 my-1">
                             <label class="sr-only" for="inlineFormInputName">Name</label>
                             <input v-model="mi.name" type="text" class="form-control" id="inlineFormInputName"
@@ -102,8 +102,8 @@
                     </div>
 
                     <div class="col-auto my-1">
-                        <button @click="toggleField($event, true, 'menuItem', 'menu')" type="button" class="btn btn-primary btn-sm">+</button>
-                        <button @click="toggleField($event, false, 'menuItem', 'menu')" type="button" class="btn btn-secondary btn-sm">-</button>
+                        <button @click="toggleField($event, true, 'menuItem', 'menu.items')" type="button" class="btn btn-primary btn-sm">+</button>
+                        <button @click="toggleField($event, false, 'menuItem', 'menu.items')" type="button" class="btn btn-secondary btn-sm">-</button>
                     </div>
 
                     <div class="form-group row">
@@ -135,7 +135,9 @@
         name: '',
         description: '',
         menuItem: {name: '', price: 'e', localLang: '', desc: '', featured: false},
-        menu: [{name: '', price: '', localLang: '', desc: '', featured: false}],
+        menu: {
+          items: [{name: '', price: '', localLang: '', desc: '', featured: false}]
+        },
         address: {addressOne: '', addressTwo: '', addressLocal: ''
         },
         addresses: [{addressOne: '', addressTwo: '', addressLocal: '',

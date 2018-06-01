@@ -6,7 +6,11 @@ const instance = axios.create({
 })
 
 let city = 'shanghai'
-if (window.location.hostname.indexOf('.')) city = window.location.hostname.split('.')[0]
+if (window.location.hostname !== process.env.hostname) {
+  if (window.location.hostname.indexOf('.') && window.location.hostname.split('.') > 1) {
+    city = window.location.hostname.split('.')[0]
+  }
+}
 axios.defaults.headers.get['Accepts'] = 'application/json'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 axios.defaults.baseURL = process.env.base_url + '/api/';

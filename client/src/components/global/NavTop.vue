@@ -36,7 +36,13 @@
     },
 
     created () {
-      if (window.location.hostname !== process.env.hostname && window.location.hostname.indexOf('.')) this.city = window.location.hostname.split('.')[0]
+
+      if (window.location.hostname !== process.env.hostname) {
+        if (window.location.hostname.indexOf('.') && window.location.hostname.split('.') > 1) {
+          this.city = window.location.hostname.split('.')[0]
+        }
+      }
+
       // if user has language set to a lang not available for this city reset it to english
       const currentLang = localStorage.getItem('language')
       if (currentLang && currentLang !== 'en') {

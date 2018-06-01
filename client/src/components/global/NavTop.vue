@@ -36,7 +36,7 @@
     },
 
     created () {
-
+      debugger
       if (window.location.hostname !== process.env.hostname) {
         if (window.location.hostname.indexOf('.') && window.location.hostname.split('.') > 1) {
           this.city = window.location.hostname.split('.')[0]

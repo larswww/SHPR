@@ -22,6 +22,7 @@ module.exports = function (req, res, next) {
       const subdomain = req.headers.origin.split('.')[0].split('http://')[1]
       if (localization.indexOf(subdomain) > -1) {
         res.locals.city = subdomain
+        console.log(res.locals.city)
         return next()
       }
 

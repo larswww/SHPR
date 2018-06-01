@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19b52d06-a4a9-4731-bbe2-ef13b41ab836" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/axios-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/axios-auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Review.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Review.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/User.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/User.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/global/NavTop.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/global/NavTop.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/review/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/model/review/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/review/facade.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/model/review/facade.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/venue/facade.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/model/venue/facade.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/data/reviews.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/data/reviews.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/data/venue.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/data/venue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/lib/loadSampleData.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/lib/loadSampleData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/pizza1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/pizza1.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/pizza2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/pizza2.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/pizza3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/pizza3.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/pizza4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/pizza4.jpeg" afterDir="false" />
-    </list>
+    <list default="true" id="19b52d06-a4a9-4731-bbe2-ef13b41ab836" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -63,8 +43,8 @@
       <file leaf-file-name="venue.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/test/data/venue.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="690" column="20" selection-start-line="690" selection-start-column="20" selection-end-line="690" selection-end-column="20" />
+            <state relative-caret-position="5149">
+              <caret line="773" column="5" lean-forward="true" selection-start-line="773" selection-start-column="5" selection-end-line="773" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -607,7 +587,7 @@
       <workItem from="1527075642132" duration="1155000" />
       <workItem from="1527077160746" duration="23289000" />
       <workItem from="1527489209720" duration="883000" />
-      <workItem from="1527756543854" duration="26913000" />
+      <workItem from="1527756543854" duration="27567000" />
     </task>
     <servers />
   </component>
@@ -644,21 +624,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399036000" />
+    <option name="totallyTimeSpent" value="399690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="DB Browser" order="2" weight="0.32967034" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5280289" side_tool="true" weight="0.38494623" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32903227" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.497558" weight="0.32615384" />
       <window_info anchor="bottom" id="Quokka" order="7" weight="0.32820514" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.47197106" weight="0.24946237" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17118746" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.47197106" visible="true" weight="0.24946237" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17118746" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Job Explorer" order="2" />
       <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.497558" weight="0.3285568" />
@@ -666,7 +645,7 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.482821" visible="true" weight="0.41827956" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.482821" weight="0.41827956" />
       <window_info anchor="bottom" id="TypeScript" order="8" />
       <window_info anchor="right" id="FAQ Robot" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1099,8 +1078,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/test/data/venue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="690" column="20" selection-start-line="690" selection-start-column="20" selection-end-line="690" selection-end-column="20" />
+        <state relative-caret-position="5149">
+          <caret line="773" column="5" lean-forward="true" selection-start-line="773" selection-start-column="5" selection-end-line="773" selection-end-column="5" />
         </state>
       </provider>
     </entry>

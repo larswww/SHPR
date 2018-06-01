@@ -3,7 +3,7 @@
 
         <h2>{{ $t('User.yourReviewed') }}</h2>
 
-        <p v-if="loadingReviews">{{$t('global.loading')}}}...</p>
+        <p v-if="loadingReviews">{{$t('global.loading')}}...</p>
 
         <p v-if="reviews && reviews.length === 0">{{$t('User.noExp')}}</p>
 

@@ -24,7 +24,7 @@ const routes = [
     path: '/user',
     component: User,
     beforeEnter (to, from, next) {
-      if (store.state.token) {
+      if (store.state.user) {
         next()
       } else {
         next('/signup')

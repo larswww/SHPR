@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 
 class VenueFacade extends Facade {
 
-  async createVenue (formData, city, lang) {
+  async createVenue (formData, lang, city) {
     let doc = await this.create({
       name: formData.name,
       nameLc: formData.name.toLowerCase(),

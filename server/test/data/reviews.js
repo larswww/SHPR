@@ -4,7 +4,7 @@
 //'Overall Review', 'Topping Quality', 'Dough'
 module.exports.seed = [
   {
-    venueName: 'Bella Napoli',
+    name: 'Bella Napoli',
     selectedPizza: 'Diavola',
     reviewAspects: [
       {
@@ -29,7 +29,7 @@ module.exports.seed = [
   },
 
   {
-    venueName: 'Homeslice',
+    name: 'Homeslice',
     selectedPizza: 'White',
     reviewAspects: [
       {
@@ -56,7 +56,7 @@ module.exports.seed = [
   },
 
   {
-    venueName: 'Centrale',
+    name: 'Centrale',
     selectedPizza: 'White',
     reviewAspects: [
       {
@@ -83,7 +83,7 @@ module.exports.seed = [
   },
 
   {
-    venueName: 'UVA Wine Bar',
+    name: 'UVA Wine Bar',
     selectedPizza: 'White',
     reviewAspects: [
       {
@@ -110,7 +110,7 @@ module.exports.seed = [
   },
 
   {
-    venueName: 'Dominos',
+    name: 'Dominos',
     selectedPizza: 'White',
     reviewAspects: [
       {
@@ -137,7 +137,7 @@ module.exports.seed = [
   },
 
   {
-    venueName: 'Papa Johns',
+    name: 'Papa Johns',
     selectedPizza: 'White',
     reviewAspects: [
       {
@@ -164,7 +164,7 @@ module.exports.seed = [
   },
 
   {
-    venueName: 'Gemma',
+    name: 'Gemma',
     selectedPizza: 'White',
     reviewAspects: [
       {

@@ -6,7 +6,7 @@
 
         <b-form @submit="onSubmit">
             <h1 v-if="edit">{{$t('Review.review')}} {{venue.name}}</h1>
-            <h1 v-else>{{$(t('Review.edit'))}} {{venue.name}} {{$t('Review.review')}}</h1>
+            <h1 v-else>{{$t('Review.edit')}} {{venue.name}} {{$t('Review.review')}}</h1>
 
             <b-form-select v-model="selectedPizza" :options="pizzaChoice" class="mb-3" size="sm"/>
 
@@ -89,12 +89,8 @@
 
         this.$store.dispatch('review', review)
           .then(res => {
-            debugger
             this.reviewAspects = res.aspects
             this.selectedPizza = res.selectedPizza
-            this.flash('Review Saved! Edit below', 'success')
-
-            console.log('review saved')
           })
           .catch(e => {
             console.error(e.message)

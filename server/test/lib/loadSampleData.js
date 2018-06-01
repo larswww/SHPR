@@ -49,7 +49,7 @@ async function seedUsers () {
 }
 
 async function seedVenues () {
-  for (let venue of venues.seed) await venueFacade.createVenue(venue, venue.city, venue.lang)
+  for (let venue of venues.seed) await venueFacade.createVenue(venue, venue.lang, venue.city)
 }
 
 async function seedReviews () {

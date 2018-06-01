@@ -8,10 +8,10 @@ class ReviewFacade extends Facade {
 
   async saveReview(user, review, lang) {
     //todo use venueName or name?
-   const venue = await venueFacade.findOne({name: review.venueName, lang})
+   const venue = await venueFacade.findOne({name: review.name, lang})
     if (!venue) throw new Error('No such venue')
     review.venue = venue._id
-    review.venueName = venue.name
+    review.name = venue.name
     review.user = user
     review.lang = lang
     let newReview = await this.create(review)

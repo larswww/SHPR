@@ -127,6 +127,7 @@ export default new Vuex.Store({
       return new Promise(async function (resolve, reject) {
         try {
           let res = await axios.post('review', review)
+          router.replace('/user')
           resolve(res.data)
         } catch (e) {
           reject(e)

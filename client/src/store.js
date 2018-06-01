@@ -66,13 +66,9 @@ export default new Vuex.Store({
       await this.dispatch('user', res.data.token)
     },
     async login ({commit}, authData) {
-      try {
-        const res = await axios.post('user/login', authData)
+      axios.post('user/login', authData).then(async res => {
         await this.dispatch('user', res.data.token)
-      } catch (e) {
-        console.error(e)
-      }
-
+      }).catch(e => console.error('login', e))
     },
 
     logout ({commit}) {

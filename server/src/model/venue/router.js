@@ -16,7 +16,7 @@ const upload = multer({storage})
 const checkRole = require('../../lib/auth/checkRole');
 
 router.route('/create')
-.post(checkRole(['ADMIN']), (...args) => controller.create(...args))
+.post(checkRole(['ADMIN']), (...args) => controller.createVenue(...args))
 
 router.route('/')
   .get((...args) => controller.get(...args))

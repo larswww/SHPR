@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19b52d06-a4a9-4731-bbe2-ef13b41ab836" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/axios-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/axios-auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/axios-global.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/global/NavTop.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/global/NavTop.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +37,17 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+            <state relative-caret-position="445">
+              <caret line="32" column="33" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Review.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Review.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1358">
+              <caret line="104" column="22" lean-forward="true" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -57,16 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lang.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/lang.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="router.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/router.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -78,32 +76,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/.env">
+      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/model/venue/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            <state relative-caret-position="165">
+              <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/store.js">
+      <file leaf-file-name="facade.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/src/model/venue/facade.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="66" column="6" lean-forward="true" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
-              <folding>
-                <element signature="e#13#34#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/App.vue">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+            <state relative-caret-position="210">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="localization.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/lib/localization.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -156,7 +160,6 @@
         <option value="$PROJECT_DIR$/server/test/data/venue.js" />
         <option value="$PROJECT_DIR$/server/test/user.js" />
         <option value="$PROJECT_DIR$/server/.env" />
-        <option value="$PROJECT_DIR$/server/src/lib/localization.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_6.html" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_5.html" />
         <option value="$PROJECT_DIR$/client/src/components/global/PhotoUpload.vue" />
@@ -191,6 +194,7 @@
         <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/axios-auth.js" />
         <option value="$PROJECT_DIR$/client/src/components/global/NavTop.vue" />
+        <option value="$PROJECT_DIR$/server/src/lib/localization.js" />
       </list>
     </option>
   </component>
@@ -557,7 +561,7 @@
       <workItem from="1527075642132" duration="1155000" />
       <workItem from="1527077160746" duration="23289000" />
       <workItem from="1527489209720" duration="883000" />
-      <workItem from="1527756543854" duration="17417000" />
+      <workItem from="1527756543854" duration="20088000" />
     </task>
     <servers />
   </component>
@@ -594,10 +598,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389540000" />
+    <option name="totallyTimeSpent" value="392211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="DB Browser" order="2" weight="0.32967034" />
@@ -606,7 +611,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.497558" weight="0.32615384" />
       <window_info anchor="bottom" id="Quokka" order="7" weight="0.32820514" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.47197106" weight="0.24946237" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.47197106" visible="true" weight="0.24946237" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17118746" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Job Explorer" order="2" />
@@ -747,7 +752,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/test/unit/specs/HelloWorld.spec.js" />
     <entry file="file://$PROJECT_DIR$/client/test/Canary.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -800,13 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/model/venue/facade.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/model/venue/schema.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -832,13 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-365">
           <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Review.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="117" column="53" lean-forward="true" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -898,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/model/venue/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -923,13 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="57" lean-forward="true" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/model/venue/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -998,13 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/lang.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1067,6 +1036,48 @@
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/lib/localization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Review.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1358">
+          <caret line="104" column="22" lean-forward="true" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/model/venue/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/model/venue/facade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
         </state>
       </provider>
     </entry>

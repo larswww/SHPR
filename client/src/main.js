@@ -7,13 +7,7 @@ import router from './router.js'
 import i18n from './lang.js'
 import BootstrapVue from 'bootstrap-vue'
 import VueFlashMessage from 'vue-flash-message'
-import VueResource from 'vue-resource'
 
-Vue.use(VueResource)
-Vue.http.options.root = 'http://shanghaipizzareviews.com/api';
-
-
-//todo use individual components instead
 Vue.use(BootstrapVue)
 Vue.use(VueFlashMessage);
 

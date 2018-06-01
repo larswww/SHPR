@@ -13,7 +13,6 @@ axios.defaults.baseURL = process.env.base_url + '/api/';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
 axios.defaults.headers.common['Language'] = localStorage.getItem('language') || 'cn'
 
-
 const reqInterceptor = axios.interceptors.request.use(config => {
   console.log('Auth Request Interceptor', config)
   return config

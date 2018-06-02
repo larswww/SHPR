@@ -63,7 +63,7 @@ class VenueController extends Controller {
 
   async photos(req, res, next) {
     const files = req.files.map(x => x.filename)
-    await this.facade.addToSet({name: req.body.venueName, lang: res.locals.lang}, 'photos', files)
+    await this.facade.addToSet({name: req.body.venue, lang: res.locals.lang}, 'photos', files)
     return res.status(201).json({files})
   }
 

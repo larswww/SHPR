@@ -114,7 +114,7 @@
         loading: true,
         review: false,
         userReviewed: false,
-        baseurl: 'http://localhost:5000/uploads/',
+        baseurl: `${process.env.base_url}/uploads/`,
 
       }
     },

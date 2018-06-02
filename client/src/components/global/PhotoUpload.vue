@@ -52,7 +52,7 @@
         uploadError: null,
         currentStatus: null,
         uploadFieldName: 'photos',
-        baseurl: 'http://localhost:5000/uploads/',
+        baseurl: `${process.env.base_url}/uploads/`,
         venue: this.venueName
       }
     },

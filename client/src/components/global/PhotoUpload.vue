@@ -82,7 +82,7 @@
       save (formData) {
 
         debugger
-        formData.append('venueName', this.venue)
+        formData.append('venueName', this.venueName)
         // upload data to the server
         this.currentStatus = STATUS_SAVING
 

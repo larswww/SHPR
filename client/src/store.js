@@ -41,7 +41,7 @@ export default new Vuex.Store({
     },
 
     userReviews (state, reviewData) {
-      for (let u of reviewData) state.userReviews[u.venueName.toLowerCase()] = u
+      for (let u of reviewData) state.userReviews[u.venue.toLowerCase()] = u
     },
 
     venue (state, venue) {

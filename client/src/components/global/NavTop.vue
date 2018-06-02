@@ -21,7 +21,7 @@
       return {
         languages: {
           shanghai: {name: '中文', key: 'cn'},
-          chiangmai: {name: 'Thai', key: 'th'}
+          chiangmai: {name: 'ไทย', key: 'th'}
         },
         city: 'shanghai'
       }
@@ -36,10 +36,12 @@
     },
 
     created () {
+
+      //take city from subdomain
+      console.log(process.env.hostname)
       if (window.location.hostname !== process.env.hostname) {
-        if (window.location.hostname.indexOf('.') && window.location.hostname.split('.') > 1) {
-          this.city = window.location.hostname.split('.')[0]
-        }
+        this.city = window.location.hostname.split(`.${process.env.hostname}`)[0]
+        console.log(this.city)
       }
 
       // if user has language set to a lang not available for this city reset it to english

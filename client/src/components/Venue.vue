@@ -114,7 +114,7 @@
         loading: true,
         review: false,
         userReviewed: false,
-        baseurl: `${process.env.base_url}/uploads/`,
+        baseurl: `${process.env.base_url}/api/uploads/`,
 
       }
     },

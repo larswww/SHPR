@@ -52,7 +52,7 @@
         uploadError: null,
         currentStatus: null,
         uploadFieldName: 'photos',
-        baseurl: `${process.env.base_url}/uploads/`,
+        baseurl: `${process.env.base_url}/api/uploads/`,
         venue: this.venueName
       }
     },

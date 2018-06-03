@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19b52d06-a4a9-4731-bbe2-ef13b41ab836" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/test/e2e/specs/Language.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/test/e2e/specs/Language.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/test/e2e/specs/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/test/e2e/specs/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/test/e2e/specs/Venue.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/test/e2e/specs/Venue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/venue/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/model/venue/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/review.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/review.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/venue.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/venue.js" afterDir="false" />
-    </list>
+    <list default="true" id="19b52d06-a4a9-4731-bbe2-ef13b41ab836" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -594,7 +584,7 @@
       <workItem from="1527075642132" duration="1155000" />
       <workItem from="1527077160746" duration="23289000" />
       <workItem from="1527489209720" duration="883000" />
-      <workItem from="1527756543854" duration="47776000" />
+      <workItem from="1527756543854" duration="48050000" />
     </task>
     <servers />
   </component>
@@ -631,7 +621,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="419899000" />
+    <option name="totallyTimeSpent" value="420173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="23" width="1680" height="1027" extended-state="6" />
@@ -643,8 +633,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32903227" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.497558" weight="0.32580644" />
       <window_info anchor="bottom" id="Quokka" order="7" weight="0.32820514" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.47136828" visible="true" weight="0.516129" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17118746" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.47136828" visible="true" weight="0.516129" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17118746" />
       <window_info id="Project Explorer" order="2" weight="0.32971668" />
       <window_info id="Job Explorer" order="2" />
       <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.497558" weight="0.3285568" />

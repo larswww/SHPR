@@ -34,14 +34,14 @@ At the top of index.js, path to the server.env must be specified.
 npm install in both client and server folder
 
 
-##Tests
+## Tests
 
-###Server
+### Server
 
 Run all tests in server/test directory with mocha, specify env variable as debug to engage the seed script, that will clear the db on each run
 
 
-###Client
+### Client
 
 PLEASE NOTE, as these are e2e tests, you need to be running the server, altough some should work without the content from the server
 'npm run e2e' in client folder will launch nightwatch/selenium

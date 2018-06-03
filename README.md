@@ -2,7 +2,7 @@
 Shanghai Pizza Reviews 
 
 live: [shanghaipizzareviews.com](http://shanghaipizzareviews.com)
-demo video: https://www.youtube.com/watch?v=ReUmH9fSCdc&feature=youtu.be
+demo video: https://youtu.be/djKOyoJA8ZM
 
 
 To run the app, .env files must be created in root of client and server folders. 

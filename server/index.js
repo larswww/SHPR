@@ -23,8 +23,6 @@ console.log(`${process.env.NODE_ENV}`)
 mongoose.connect(process.env[`${process.env.NODE_ENV}db`], dbOptions)
 const db = mongoose.connection
 
-
-
 db.on('error', console.error.bind(console, 'connection error:'));
 if (process.env.NODE_ENV !== 'production') mongoose.set('debug', true);
 
@@ -41,7 +39,7 @@ app.use(cors())
 app.use(helmet())
 app.use(bodyParser.json({limit: '50mb'}))
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}))
-app.use('/uploads', express.static(process.env.upload_path));
+app.use('/api/uploads', express.static(process.env.upload_path));
 
 if (process.env.NODE_ENV !== 'test') app.use(morgan('combined'))
 

@@ -6,7 +6,6 @@ openRoutes['/api/venue/masterReviews'] = ['GET']
 openRoutes['/api/venue'] = ['GET']
 openRoutes['/api/venue/photos'] = ['GET']
 
-
 //this is for routes that has a :param in the url
 const paramRoutes = [
   {
@@ -15,7 +14,7 @@ const paramRoutes = [
   },
 
   {
-    route: '/uploads/',
+    route: '/api/uploads/',
     method: 'GET'
   }
 ]

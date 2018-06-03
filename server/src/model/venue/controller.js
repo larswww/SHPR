@@ -6,6 +6,7 @@ class VenueController extends Controller {
 
   async createVenue(req, res, next) {
     try {
+      if (!req.body.name) return next({statusCode: 500, message: 'Error during create.'})
       const venue = await this.facade.createVenue(req.body, res.locals.lang, res.locals.city)
       return res.status(201).json({venue})
     } catch (e) {

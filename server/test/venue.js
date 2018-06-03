@@ -29,14 +29,16 @@ describe('Venue', function () {
     adminToken = obj.adminToken
   })
 
-  it('it should GET all the venues', (done) => {
+  it('it should GET all the seed english venues for shanghai', (done) => {
     chai.request(server)
       .get('/api/venue')
+      .set('language', 'en')
+      .set('city', 'shanghai')
       .set('origin', 'http://localhost:8080')
       .end((err, res) => {
         res.should.have.status(200)
         res.body.venues.should.be.a('array')
-        res.body.venues.length.should.be.eql(venues.seed.length)
+        res.body.venues.length.should.be.eql(6)
         done()
       })
   })
@@ -89,8 +91,7 @@ describe('Venue', function () {
       .set('origin', 'http://localhost:8080')
       .end((err, res) => {
         res.should.have.status(200)
-        res.body.should.have.property('venues')
-        res.body.venues.length.should.equal(2)
+        res.body.length.should.equal(2)
         done()
       })
 

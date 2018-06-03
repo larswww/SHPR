@@ -26,8 +26,8 @@ describe('Review', async function () {
     await Review.remove({})
     await User.remove({})
     const obj = await seedData()
-    userToken = obj.userToken
-    adminToken = obj.adminToken
+    userToken = 'Bearer ' + obj.userToken
+    adminToken = 'Bearer ' + obj.adminToken
   })
 
   it('should reject a review without all params', function (done) {
